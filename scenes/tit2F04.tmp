@@ -8,9 +8,9 @@
 script = ExtResource("1_c28on")
 
 [node name="Title" type="Label" parent="."]
+offset_left = -324.0
 offset_top = 25.0
-offset_right = 324.0
-offset_bottom = 115.0
+offset_bottom = 100.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -25,9 +25,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Play_Button" type="Label" parent="."]
+offset_left = -324.0
 offset_top = 150.0
-offset_right = 324.0
-offset_bottom = 213.0
+offset_bottom = 225.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -49,10 +49,9 @@ scale = Vector2(6, 3)
 shape = SubResource("RectangleShape2D_tq5rw")
 
 [node name="back_button" type="Label" parent="."]
-visible = false
+offset_left = -324.0
 offset_top = 150.0
-offset_right = 324.0
-offset_bottom = 213.0
+offset_bottom = 225.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -74,9 +73,9 @@ scale = Vector2(6, 3)
 shape = SubResource("RectangleShape2D_tq5rw")
 
 [node name="Options_Button" type="Label" parent="."]
+offset_left = -324.0
 offset_top = 250.0
-offset_right = 324.0
-offset_bottom = 313.0
+offset_bottom = 325.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -97,9 +96,9 @@ scale = Vector2(10, 3)
 shape = SubResource("RectangleShape2D_tq5rw")
 
 [node name="Credits_Button" type="Label" parent="."]
+offset_left = -324.0
 offset_top = 350.0
-offset_right = 324.0
-offset_bottom = 413.0
+offset_bottom = 425.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
