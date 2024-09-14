@@ -64,6 +64,13 @@ text = "options"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="opt_area" type="Area2D" parent="Options_Button"]
+
+[node name="area_shape" type="CollisionShape2D" parent="Options_Button/opt_area"]
+position = Vector2(162, 45)
+scale = Vector2(10, 3)
+shape = SubResource("RectangleShape2D_tq5rw")
+
 [node name="Credits_Button" type="Label" parent="."]
 offset_left = -324.0
 offset_top = 350.0
@@ -80,5 +87,16 @@ text = "credits"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="cred_area" type="Area2D" parent="Credits_Button"]
+
+[node name="area_shape" type="CollisionShape2D" parent="Credits_Button/cred_area"]
+position = Vector2(162, 45)
+scale = Vector2(8, 3)
+shape = SubResource("RectangleShape2D_tq5rw")
+
 [connection signal="mouse_entered" from="Play_Button/play_area" to="." method="_on_play_mouse_entered"]
 [connection signal="mouse_exited" from="Play_Button/play_area" to="." method="_on_play_mouse_exited"]
+[connection signal="mouse_entered" from="Options_Button/opt_area" to="." method="_on_opt_mouse_entered"]
+[connection signal="mouse_exited" from="Options_Button/opt_area" to="." method="_on_opt_mouse_exited"]
+[connection signal="mouse_entered" from="Credits_Button/cred_area" to="." method="_on_cred_mouse_entered"]
+[connection signal="mouse_exited" from="Credits_Button/cred_area" to="." method="_on_cred_mouse_exited"]

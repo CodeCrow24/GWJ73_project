@@ -32,15 +32,15 @@ func moveTitle(deltaTime):
 	
 	
 	if index <= 3 and showTitle != titleVis: 
-		index += 0.02
+		index += 0.05
 		
 	if !showTitle and titleVis:
 		if index >= 1:
-			PlaySpeed = -150
+			PlaySpeed = -600
 		if index >= 2:
-			OptSpeed = -150
+			OptSpeed = -600
 		if index >= 3:
-			CredSpeed = -150
+			CredSpeed = -600
 	
 	$Play_Button.position.x += PlaySpeed * deltaTime
 	$Options_Button.position.x += OptSpeed * deltaTime
@@ -59,14 +59,28 @@ func checkTitleVis():
 
 func _on_play_mouse_entered():
 	mouseOnPlay = true
-	print(mouseOnPlay)
 
 
 func _on_play_mouse_exited():
 	mouseOnPlay = false
-	print(mouseOnPlay)
+
+
+func _on_opt_mouse_entered():
+	mouseOnOpt = true
+
+
+func _on_opt_mouse_exited():
+	mouseOnOpt = false
+
+
+func _on_cred_mouse_entered():
+	mouseOnCred = true
+
+
+func _on_cred_mouse_exited():
+	mouseOnCred = false
 
 
 func _input(_event):
-	if Input.is_action_just_pressed("mouse_left") and mouseOnPlay:
+	if Input.is_action_just_pressed("mouse_left") and (mouseOnPlay or mouseOnCred or mouseOnOpt):
 		showTitle = false
