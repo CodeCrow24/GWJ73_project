@@ -19,6 +19,12 @@ config/icon="res://assets/icon.svg"
 
 Global="*res://scripts/global.gd"
 
+[importer_defaults]
+
+animation_library={
+"animation/fps": 30.0
+}
+
 [input]
 
 up={
