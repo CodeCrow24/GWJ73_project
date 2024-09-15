@@ -19,15 +19,6 @@ config/icon="res://assets/icon.svg"
 
 Global="*res://scripts/global.gd"
 
-[display]
-
-window/size/mode=4
-window/size/resizable=false
-window/stretch/mode="viewport"
-window/stretch/aspect="expand"
-window/stretch/scale=8.0
-window/stretch/scale_mode="integer"
-
 [input]
 
 up={
