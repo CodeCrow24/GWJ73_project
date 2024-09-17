@@ -1,6 +1,6 @@
 extends Node
 
-@export var floors = [preload("res://scenes/floors/Floor 0.tscn"),preload("res://scenes/floors/Floor 1.tscn")]
+@export var floors = [preload("res://scenes/floors/Floor 0.tscn"),preload("res://scenes/floors/Floor 1.tscn"),preload("res://scenes/floors/Floor 2.tscn")]
 var current_floor
 
 func go_to_floor(floor_name):
@@ -11,6 +11,8 @@ func go_to_floor(floor_name):
 			floor_to_load = floors[0]
 		"Floor 1":
 			floor_to_load = floors[1]
+		"Floor 2":
+			floor_to_load = floors[2]
 	
 	if floor_to_load != null:
 		if current_floor != floor_name: 

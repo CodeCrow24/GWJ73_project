@@ -188,7 +188,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q8oso"]
 radius = 4.0
-height = 14.0
+height = 20.0
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_u7pjb")
@@ -196,6 +196,7 @@ script = ExtResource("1_u7pjb")
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(0.998243, 1)
 zoom = Vector2(3, 3)
+position_smoothing_enabled = true
 
 [node name="anim" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

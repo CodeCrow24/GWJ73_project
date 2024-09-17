@@ -111,8 +111,9 @@ offset_left = 82.3333
 offset_top = 76.3333
 offset_right = 82.3333
 offset_bottom = 76.3333
-ButtonState = 3
-Symbol = "3"
+ButtonState = 1
+Symbol = "2"
+DestinationFloor = "Floor 2"
 
 [node name="elevator_button7" parent="ControlPanelPanel/Buttons" instance=ExtResource("2_vrl2p")]
 offset_left = 50.3333
