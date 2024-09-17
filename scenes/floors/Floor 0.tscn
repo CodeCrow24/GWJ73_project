@@ -66,6 +66,8 @@ position = Vector2(-157, 60)
 position = Vector2(-61, 76)
 DestinationFloor = "Floor 1"
 
+[node name="stairs_tile2" parent="Stairs" instance=ExtResource("7_rwgxl")]
+position = Vector2(67, -42)
 stairs_id = 1
 DestinationFloor = "Floor 1"
 
