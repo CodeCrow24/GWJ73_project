@@ -60,7 +60,7 @@ position = Vector2(612, -40)
 position = Vector2(132, 56)
 
 [node name="player" parent="." instance=ExtResource("2_2ktdx")]
-position = Vector2(132, 31)
+position = Vector2(131, 35)
 SPEED = 70
 
 [node name="GUI" parent="." instance=ExtResource("6_uqrhs")]
