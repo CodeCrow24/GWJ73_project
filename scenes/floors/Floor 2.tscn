@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=4 uid="uid://cmj1p4sgv83qu"]
 
-[ext_resource type="Script" path="res://scenes/floors/floor_2.gd" id="1_1vrbt"]
+[ext_resource type="Script" path="res://scripts/floors/floor_2.gd" id="1_1vrbt"]
 [ext_resource type="Texture2D" uid="uid://diuprq6vpml37" path="res://assets/level_bg.png" id="1_3lfsy"]
 [ext_resource type="Texture2D" uid="uid://d3oq0pwjcx27u" path="res://assets/tilemap.png" id="2_80thm"]
 [ext_resource type="PackedScene" uid="uid://bl4bm86r3ds2u" path="res://scenes/elevator_tile.tscn" id="3_kprqc"]
@@ -63,3 +63,5 @@ position = Vector2(-128, 109)
 SPEED = 70
 
 [node name="GUI" parent="." instance=ExtResource("5_rjfqu")]
+
+[node name="Stairs" type="Node2D" parent="."]

@@ -65,7 +65,8 @@ func _on_button_button_up() -> void:
 		if FloorManager.current_floor == DestinationFloor:
 			emit_signal("open_doors")
 		else:
-			FloorManager.go_to_floor(DestinationFloor)
+			print(get_parent().get_parent().get_parent().elevator_that_opened_level_select)
+			FloorManager.go_to_floor(DestinationFloor, "Elevator", get_parent().get_parent().get_parent().elevator_that_opened_level_select.elevator_id)
 	
 		
 	if OtherAction != null and ButtonState != ButtonStates.Locked:

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bndbuhrc7sla5"]
 
-[ext_resource type="Script" path="res://scenes/stairs_tile_down.gd" id="1_m2s3a"]
+[ext_resource type="Script" path="res://scripts/stairs_tile_down.gd" id="1_m2s3a"]
 [ext_resource type="Texture2D" uid="uid://cfjvrdqest0dy" path="res://assets/stairs_up_back.png" id="2_mj2vg"]
 [ext_resource type="Texture2D" uid="uid://dq6301caopken" path="res://assets/stairs_up_front.png" id="3_3trj4"]
 
