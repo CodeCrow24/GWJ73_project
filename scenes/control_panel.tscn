@@ -1,0 +1,163 @@
+[gd_scene load_steps=4 format=3 uid="uid://dobrbfx23cohb"]
+
+[ext_resource type="Script" path="res://scripts/control_panel.gd" id="1_p61hg"]
+[ext_resource type="Texture2D" uid="uid://d20qmcvg01xam" path="res://assets/GUI/elevator/ControlPanelBackground.png" id="1_qds4j"]
+[ext_resource type="PackedScene" uid="uid://b1mijepukok1e" path="res://scenes/elevator_button.tscn" id="2_vrl2p"]
+
+[node name="ControlPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_p61hg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+color = Color(0.635294, 0.635294, 0.635294, 1)
+
+[node name="ControlPanelFloorNumber" type="NinePatchRect" parent="."]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.404514
+anchor_top = 0.223765
+anchor_right = 0.41059
+anchor_bottom = 0.228395
+offset_left = -50.0
+offset_top = -65.0
+offset_right = 50.0
+offset_bottom = 65.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+texture = ExtResource("1_qds4j")
+region_rect = Rect2(0, 0, 32, 16)
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ControlPanelPanel" type="NinePatchRect" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.00607639
+anchor_bottom = 0.00462963
+offset_right = 100.0
+offset_bottom = 130.0
+scale = Vector2(3, 3)
+texture = ExtResource("1_qds4j")
+region_rect = Rect2(0, 0, 32, 16)
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Buttons" type="Control" parent="ControlPanelPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="elevator_button" parent="ControlPanelPanel/Buttons" instance=ExtResource("2_vrl2p")]
+offset_left = 50.3333
+offset_top = 109.667
+offset_right = 50.3333
+offset_bottom = 109.667
+Symbol = "Alarm"
+
+[node name="elevator_button2" parent="ControlPanelPanel/Buttons" instance=ExtResource("2_vrl2p")]
+offset_left = 18.3333
+offset_top = 109.667
+offset_right = 18.3333
+offset_bottom = 109.667
+Symbol = "Close"
+OtherAction = "Open Doors"
+
+[node name="elevator_button3" parent="ControlPanelPanel/Buttons" instance=ExtResource("2_vrl2p")]
+offset_left = 82.3333
+offset_top = 109.667
+offset_right = 82.3333
+offset_bottom = 109.667
+Symbol = "Open"
+
+[node name="elevator_button4" parent="ControlPanelPanel/Buttons" instance=ExtResource("2_vrl2p")]
+offset_left = 50.3333
+offset_top = 76.3333
+offset_right = 50.3333
+offset_bottom = 76.3333
+ButtonState = 2
+Symbol = "1"
+DestinationFloor = "Floor 1"
+
+[node name="elevator_button5" parent="ControlPanelPanel/Buttons" instance=ExtResource("2_vrl2p")]
+offset_left = 18.3333
+offset_top = 76.3333
+offset_right = 18.3333
+offset_bottom = 76.3333
+ButtonState = 1
+DestinationFloor = "Floor 0"
+
+[node name="elevator_button6" parent="ControlPanelPanel/Buttons" instance=ExtResource("2_vrl2p")]
+offset_left = 82.3333
+offset_top = 76.3333
+offset_right = 82.3333
+offset_bottom = 76.3333
+ButtonState = 3
+Symbol = "3"
+
+[node name="elevator_button7" parent="ControlPanelPanel/Buttons" instance=ExtResource("2_vrl2p")]
+offset_left = 50.3333
+offset_top = 47.0
+offset_right = 50.3333
+offset_bottom = 47.0
+ButtonState = 3
+Symbol = "4"
+
+[node name="elevator_button8" parent="ControlPanelPanel/Buttons" instance=ExtResource("2_vrl2p")]
+offset_left = 18.3333
+offset_top = 47.0
+offset_right = 18.3333
+offset_bottom = 47.0
+ButtonState = 3
+Symbol = "3"
+
+[node name="elevator_button9" parent="ControlPanelPanel/Buttons" instance=ExtResource("2_vrl2p")]
+offset_left = 82.3333
+offset_top = 47.0
+offset_right = 82.3333
+offset_bottom = 47.0
+ButtonState = 3
+Symbol = "5"
+
+[node name="elevator_button10" parent="ControlPanelPanel/Buttons" instance=ExtResource("2_vrl2p")]
+offset_left = 50.3333
+offset_top = 17.6667
+offset_right = 50.3333
+offset_bottom = 17.6667
+ButtonState = 3
+Symbol = "7"
+
+[node name="elevator_button11" parent="ControlPanelPanel/Buttons" instance=ExtResource("2_vrl2p")]
+offset_left = 18.3333
+offset_top = 17.6667
+offset_right = 18.3333
+offset_bottom = 17.6667
+ButtonState = 3
+Symbol = "6"
+
+[node name="elevator_button12" parent="ControlPanelPanel/Buttons" instance=ExtResource("2_vrl2p")]
+offset_left = 82.3333
+offset_top = 17.6667
+offset_right = 82.3333
+offset_bottom = 17.6667
+ButtonState = 3
+Symbol = "8"

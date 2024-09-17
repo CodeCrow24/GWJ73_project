@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtv4wihrnp6ab"]
+
+[ext_resource type="PackedScene" uid="uid://dobrbfx23cohb" path="res://scenes/control_panel.tscn" id="1_fvcd6"]
+[ext_resource type="Script" path="res://scripts/gui.gd" id="1_vmf71"]
+
+[node name="GUI" type="CanvasLayer"]
+script = ExtResource("1_vmf71")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="LevelSelect" parent="." instance=ExtResource("1_fvcd6")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -185.0
+offset_right = -150.0
+offset_bottom = -185.0
+grow_horizontal = 2
+grow_vertical = 2
