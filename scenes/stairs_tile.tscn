@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxwjnoi46axp3"]
+
+[ext_resource type="Script" path="res://scripts/stairs_tile.gd" id="1_lw6u5"]
+[ext_resource type="Texture2D" uid="uid://uxutjtbb2pve" path="res://assets/stairs.png" id="1_vfntj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_65a0i"]
+size = Vector2(64, 4)
+
+[node name="stairs_tile" type="StaticBody2D"]
+script = ExtResource("1_lw6u5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -32)
+texture = ExtResource("1_vfntj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_65a0i")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-32, -16, -32, -3, -26, -3, -26, -7, -20, -7, -20, -11, -14, -11, -14, -15, -8, -15, -8, -19, -2, -19, -2, -23, 4, -23, 4, -27, 10, -27, 10, -31, 10, -40, 10, -40, 4, -40, 4, -36, -2, -36, -2, -32, -8, -32, -8, -28, -14, -28, -14, -24, -20, -24, -20, -20, -26, -20, -26, -16)
+
+[node name="PlayerMovedUp" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerMovedUp"]
+polygon = PackedVector2Array(-2, -36, -2, -23, 4, -23, 4, -27, 10, -27, 10, -31, 32, -31, 32, -44, 10, -44, 10, -40, 4, -40, 4, -36)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="PlayerMovedUp" to="." method="_on_player_moved_up_body_entered"]

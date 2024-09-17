@@ -53,6 +53,8 @@ tile_set = SubResource("TileSet_pnkff")
 [node name="Elevator_1" parent="Elevators" instance=ExtResource("4_3kp6k")]
 position = Vector2(43, 52)
 
+[node name="Stairs" type="Node2D" parent="."]
+
 [node name="player" parent="." instance=ExtResource("5_rgk5b")]
 position = Vector2(98, 48)
 SPEED = 70

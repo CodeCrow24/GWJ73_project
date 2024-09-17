@@ -8,7 +8,15 @@ class_name Player
 var player_state
 var last_dir = "s-idle"
 
+var current_stairs = null
 
+func enter_stairs(stairs):
+	print("enter")
+	current_stairs = stairs
+
+func exit_stairs():
+	print("exit")
+	current_stairs = null
 
 func _physics_process(delta):
 	var direction = Input.get_vector("left", "right", "up", "down")
@@ -18,8 +26,24 @@ func _physics_process(delta):
 	else:
 		player_state = "walk"
 	
-	velocity = direction * SPEED
-	move_and_slide()
+	
+			
+		
+	
+	
+	if current_stairs != null:
+		direction.y = 0
+		if current_stairs.direction == current_stairs.directions.Left:
+			if direction.x > 0:
+				direction.y = -current_stairs.y_add
+			elif direction.x < 0:
+				direction.y = current_stairs.y_add
+		velocity = direction * SPEED
+		position += velocity * delta
+	
+	else:
+		velocity = direction * SPEED
+		move_and_slide()
 	
 	play_animation(direction)
 	

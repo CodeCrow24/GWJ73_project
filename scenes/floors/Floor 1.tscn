@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://bdjmmvouoqwj0"]
+[gd_scene load_steps=10 format=4 uid="uid://bdjmmvouoqwj0"]
 
 [ext_resource type="Script" path="res://scripts/floors/floor_1.gd" id="1_sakti"]
 [ext_resource type="Texture2D" uid="uid://diuprq6vpml37" path="res://assets/level_bg.png" id="2_h6kqm"]
@@ -59,8 +59,19 @@ elevator_id = 1
 [node name="Elevator_1" parent="Elevators" instance=ExtResource("4_at65u")]
 position = Vector2(-125, 60)
 
+[node name="Stairs" type="Node2D" parent="."]
+
+[node name="stairs_tile" parent="Stairs" instance=ExtResource("5_i1khl")]
+position = Vector2(165, 158)
+DestinationFloor = "Floor 0"
+
+[node name="stairs_tile2" parent="Stairs" instance=ExtResource("5_i1khl")]
+position = Vector2(259, -35)
+stairs_id = 1
+DestinationFloor = "Floor 0"
+
 [node name="player" parent="." instance=ExtResource("5_0p3ur")]
-position = Vector2(-128, 109)
+position = Vector2(132, 31)
 SPEED = 70
 
 [node name="GUI" parent="." instance=ExtResource("6_tcra2")]
