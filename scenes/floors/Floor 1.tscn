@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/floors/floor_1.gd" id="1_sakti"]
 [ext_resource type="Texture2D" uid="uid://diuprq6vpml37" path="res://assets/level_bg.png" id="2_h6kqm"]
-[ext_resource type="Texture2D" uid="uid://d3oq0pwjcx27u" path="res://assets/tilemap_32x.png" id="3_mh2lh"]
+[ext_resource type="Texture2D" uid="uid://d3oq0pwjcx27u" path="res://assets/tilemap.png" id="3_mh2lh"]
 [ext_resource type="PackedScene" uid="uid://bl4bm86r3ds2u" path="res://scenes/elevator_tile.tscn" id="4_at65u"]
 [ext_resource type="PackedScene" uid="uid://bbfkwlbv01sm6" path="res://scenes/player.tscn" id="5_0p3ur"]
 [ext_resource type="PackedScene" uid="uid://dtv4wihrnp6ab" path="res://scenes/gui.tscn" id="6_tcra2"]
@@ -60,7 +60,7 @@ elevator_id = 1
 position = Vector2(-125, 60)
 
 [node name="player" parent="." instance=ExtResource("5_0p3ur")]
-position = Vector2(132, 31)
+position = Vector2(-128, 109)
 SPEED = 70
 
 [node name="GUI" parent="." instance=ExtResource("6_tcra2")]

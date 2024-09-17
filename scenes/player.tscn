@@ -190,7 +190,7 @@ animations = [{
 radius = 4.0
 height = 14.0
 
-[node name="player" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_u7pjb")
 
 [node name="Camera2D" type="Camera2D" parent="."]

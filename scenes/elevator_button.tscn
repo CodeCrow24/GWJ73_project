@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b1mijepukok1e"]
 
 [ext_resource type="Texture2D" uid="uid://crj0yieae41ru" path="res://assets/GUI/elevator/ControlPanelButton.png" id="1_5noww"]
-[ext_resource type="Script" path="res://scenes/elevator_button.gd" id="1_y2gmw"]
+[ext_resource type="Script" path="res://scripts/elevator_button.gd" id="1_y2gmw"]
 [ext_resource type="Texture2D" uid="uid://c2kjrk6q4xmh3" path="res://assets/GUI/elevator/ButtonSymbols.png" id="3_mkwpg"]
 
 [node name="elevator_button" type="Control"]
@@ -12,6 +12,7 @@ script = ExtResource("1_y2gmw")
 [node name="Button" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
 texture_filter = 1
+layout_mode = 0
 offset_left = -12.0
 offset_top = -12.0
 offset_right = 12.0
