@@ -8,7 +8,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_44ys7"]
 shader = ExtResource("3_5f8s5")
-shader_parameter/cutoff = 0.486
+shader_parameter/cutoff = 0.0
 shader_parameter/smooth_size = 0.35
 shader_parameter/mask = ExtResource("4_d5433")
 
@@ -24,6 +24,17 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
+[node name="transition_shader" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_44ys7")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("5_g0gfm")
+
 [node name="LevelSelect" parent="." instance=ExtResource("1_fvcd6")]
 visible = false
 anchors_preset = 8
@@ -38,13 +49,8 @@ offset_bottom = -185.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="transition_shader" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_44ys7")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
-script = ExtResource("5_g0gfm")
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

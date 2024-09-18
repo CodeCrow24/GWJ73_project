@@ -36,7 +36,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	updateButton()
 	
 func updateButton():
@@ -72,5 +72,4 @@ func _on_button_button_up() -> void:
 	if OtherAction != null and ButtonState != ButtonStates.Locked:
 		match OtherAction:
 			"Open Doors":
-				
 				emit_signal("open_doors")

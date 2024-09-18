@@ -65,6 +65,6 @@ func play_animation(dir):
 			last_dir = "e-idle"
 		
 
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed("mouse_right"):
 		position = get_global_mouse_position()
