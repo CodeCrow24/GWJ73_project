@@ -1,12 +1,9 @@
-[gd_scene load_steps=10 format=4 uid="uid://bdjmmvouoqwj0"]
+[gd_scene load_steps=7 format=4 uid="uid://bdjmmvouoqwj0"]
 
 [ext_resource type="Script" path="res://scripts/floors/floor_1.gd" id="1_sakti"]
-[ext_resource type="Texture2D" uid="uid://diuprq6vpml37" path="res://assets/level_bg.png" id="2_h6kqm"]
 [ext_resource type="Texture2D" uid="uid://d3oq0pwjcx27u" path="res://assets/tilemap.png" id="3_mh2lh"]
 [ext_resource type="PackedScene" uid="uid://bl4bm86r3ds2u" path="res://scenes/elevator_tile.tscn" id="4_at65u"]
-[ext_resource type="PackedScene" uid="uid://bbfkwlbv01sm6" path="res://scenes/player.tscn" id="5_0p3ur"]
 [ext_resource type="PackedScene" uid="uid://bndbuhrc7sla5" path="res://scenes/stairs_tile_down.tscn" id="5_i1khl"]
-[ext_resource type="PackedScene" uid="uid://dtv4wihrnp6ab" path="res://scenes/gui.tscn" id="6_tcra2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s6nuq"]
 texture = ExtResource("3_mh2lh")
@@ -40,11 +37,6 @@ sources/0 = SubResource("TileSetAtlasSource_s6nuq")
 script = ExtResource("1_sakti")
 floor_name = "Floor 1"
 
-[node name="Background" type="Sprite2D" parent="."]
-position = Vector2(416, 8)
-scale = Vector2(2.39931, 2.75926)
-texture = ExtResource("2_h6kqm")
-
 [node name="TileMapLayer 32x Version" type="TileMapLayer" parent="."]
 texture_filter = 1
 position = Vector2(-285, -68)
@@ -70,9 +62,3 @@ DestinationFloor = "Floor 0"
 position = Vector2(259, -35)
 stairs_id = 1
 DestinationFloor = "Floor 0"
-
-[node name="player" parent="." instance=ExtResource("5_0p3ur")]
-position = Vector2(132, 31)
-SPEED = 70
-
-[node name="GUI" parent="." instance=ExtResource("6_tcra2")]

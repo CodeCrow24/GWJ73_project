@@ -1,5 +1,7 @@
 extends Node
 
+signal change_to_floor(floor, spawn_type, spawn_id)
+
 @export var floors = [preload("res://scenes/floors/Floor 0.tscn"),preload("res://scenes/floors/Floor 1.tscn"),preload("res://scenes/floors/Floor 2.tscn")]
 var current_floor
 
@@ -19,4 +21,5 @@ func go_to_floor(floor_name, spawn_type, spawn_id):
 	if floor_to_load != null:
 		nextFloorSpawn = [spawn_type, spawn_id]
 		if current_floor != floor_name: 
-			get_tree().change_scene_to_packed(floor_to_load)
+			change_to_floor.emit(floor_name, spawn_type, spawn_id)
+			#get_tree().change_scene_to_packed(floor_to_load)

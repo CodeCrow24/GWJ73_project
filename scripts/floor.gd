@@ -5,9 +5,28 @@ class_name floor
 @export var Start_Elevator_ID = 0
 
 
+func floor_exited():
+	self.visible = false
+	$"TileMapLayer 32x Version".enabled = false
+	for i in $Elevators.get_children():
+		i.turn_off()
+	for i in $Stairs.get_children():
+		i.turn_off()
+		
+
+
+func floor_entered():
+	self.visible = true
+	$"TileMapLayer 32x Version".enabled = true
+	for i in $Elevators.get_children():
+		i.turn_on()
+	for i in $Stairs.get_children():
+		i.turn_on()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	floor_exited()
+	"""
 	FloorManager.current_floor = floor_name
 	
 	for i in $Elevators.get_children():
@@ -35,14 +54,7 @@ func _ready() -> void:
 				$player.position = i.position
 				$player.position.x -= 20
 				$player.position.y -= 30
-				
-		#if i.elevator_id == Start_Elevator_ID:
-		#	
-		#	$player.position = i.position
-		#	$player.position.y -= 20
-		#	i.player_is_inside = true
-		#	i.open_with_player_inside()
-		#	break
+	"""
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

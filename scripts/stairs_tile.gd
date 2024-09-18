@@ -1,5 +1,25 @@
 extends StaticBody2D
 
+
+
+
+
+func turn_on():
+	$CollisionShape2D.disabled = false
+	
+	$Area2D.monitoring = true
+	$PlayerMovedUp.monitoring = true
+	
+
+func turn_off():
+	$CollisionShape2D.disabled = true
+	
+	$Area2D.monitoring = false
+	$PlayerMovedUp.monitoring = false
+
+
+
+
 signal stairs_entered(stairs)
 signal stairs_exited
 enum directions {Left, Right}
@@ -31,4 +51,5 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 
 func _on_player_moved_up_body_entered(body: Node2D) -> void:
 	if body is Player and DestinationFloor != null:
-		FloorManager.go_to_floor(DestinationFloor, "StairsUp", stairs_id)
+		get_tree().root.get_node("main").get_node("GUI").stairs_transition_in(DestinationFloor, "StairsUp", stairs_id)
+		#FloorManager.go_to_floor(DestinationFloor, "StairsUp", stairs_id)
