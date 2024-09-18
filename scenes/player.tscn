@@ -192,6 +192,7 @@ height = 20.0
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_u7pjb")
+SPEED = 80
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(0.998243, 1)

@@ -1,18 +1,114 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtv4wihrnp6ab"]
+[gd_scene load_steps=13 format=3 uid="uid://dtv4wihrnp6ab"]
 
 [ext_resource type="PackedScene" uid="uid://dobrbfx23cohb" path="res://scenes/control_panel.tscn" id="1_fvcd6"]
 [ext_resource type="Script" path="res://scripts/gui.gd" id="1_vmf71"]
 [ext_resource type="Shader" path="res://shaders/transition.gdshader" id="3_5f8s5"]
-[ext_resource type="Texture2D" uid="uid://bkgfqmlgxbe1v" path="res://assets/GUI/radial.png" id="4_35axa"]
+[ext_resource type="Texture2D" uid="uid://dc5qvbc0g8c1r" path="res://assets/GUI/curtain.png" id="4_d5433"]
 [ext_resource type="Script" path="res://scripts/transition_shader.gd" id="5_g0gfm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_44ys7"]
 shader = ExtResource("3_5f8s5")
-shader_parameter/cutoff = 0.343
-shader_parameter/smooth_size = 0.26
+shader_parameter/cutoff = 0.35
+shader_parameter/smooth_size = 0.499
 shader_parameter/scale = 1.0
 shader_parameter/use_adjust_aspect_ratio = true
-shader_parameter/mask = ExtResource("4_35axa")
+shader_parameter/mask = ExtResource("4_d5433")
+
+[sub_resource type="Animation" id="Animation_agfrq"]
+resource_name = "show_level_select"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LevelSelect:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(426, 700), Vector2(426, 139)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LevelSelect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="Animation" id="Animation_4ku7s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LevelSelect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(426, 139)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LevelSelect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_kyhge"]
+resource_name = "hide_level_select"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LevelSelect:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(426, 139), Vector2(426, 700)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LevelSelect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_vggvo"]
+resource_name = "StairsFadeIn"
+
+[sub_resource type="Animation" id="Animation_5a1ma"]
+resource_name = "StairsFadeOut"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u4pwe"]
+_data = {
+"RESET": SubResource("Animation_4ku7s"),
+"StairsFadeIn": SubResource("Animation_vggvo"),
+"StairsFadeOut": SubResource("Animation_5a1ma"),
+"hide_level_select": SubResource("Animation_kyhge"),
+"show_level_select": SubResource("Animation_agfrq")
+}
 
 [node name="GUI" type="CanvasLayer"]
 script = ExtResource("1_vmf71")
@@ -25,6 +121,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="transition_shader" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_44ys7")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("5_g0gfm")
 
 [node name="LevelSelect" parent="." instance=ExtResource("1_fvcd6")]
 visible = false
@@ -40,13 +147,9 @@ offset_bottom = -185.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="transition_shader" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_44ys7")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 1)
-script = ExtResource("5_g0gfm")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_u4pwe")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
