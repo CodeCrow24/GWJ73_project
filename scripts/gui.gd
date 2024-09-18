@@ -7,14 +7,20 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 #var elevator_that_opened_level_select
 
 func show_level_select(elevator):
 	$LevelSelect.elevator_that_opened_level_select  = elevator
+	Global.showTransitionFade = true
 	$LevelSelect.visible = true
 	
 func hide_level_select():
 	$LevelSelect.visible = false
+	$Timer.start()
+
+
+func _on_timer_timeout():
+	Global.showTransitionFade = false
