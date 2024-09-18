@@ -3,14 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://dobrbfx23cohb" path="res://scenes/control_panel.tscn" id="1_fvcd6"]
 [ext_resource type="Script" path="res://scripts/gui.gd" id="1_vmf71"]
 [ext_resource type="Shader" path="res://shaders/transition.gdshader" id="3_5f8s5"]
-[ext_resource type="Texture2D" uid="uid://dc5qvbc0g8c1r" path="res://assets/GUI/curtain.png" id="4_d5433"]
+[ext_resource type="Texture2D" uid="uid://bkgfqmlgxbe1v" path="res://assets/GUI/radial.png" id="4_35axa"]
 [ext_resource type="Script" path="res://scripts/transition_shader.gd" id="5_g0gfm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_44ys7"]
 shader = ExtResource("3_5f8s5")
-shader_parameter/cutoff = 0.486
-shader_parameter/smooth_size = 0.35
-shader_parameter/mask = ExtResource("4_d5433")
+shader_parameter/cutoff = 0.343
+shader_parameter/smooth_size = 0.26
+shader_parameter/scale = 1.0
+shader_parameter/use_adjust_aspect_ratio = true
+shader_parameter/mask = ExtResource("4_35axa")
 
 [node name="GUI" type="CanvasLayer"]
 script = ExtResource("1_vmf71")
