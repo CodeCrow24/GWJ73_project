@@ -48,3 +48,10 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		$AnimationPlayer.play("StairsFadeIn")
 	elif anim_name == "StairsFadeOut":
 		get_tree().root.get_node("main").get_node("player/Camera2D").position_smoothing_enabled = true
+
+
+func show_funfact(funfact):
+	$FunFactPanel.show_funfact(funfact)
+
+func hide_funfact():
+	$FunFactPanel.hide_funfact()

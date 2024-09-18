@@ -1,46 +1,46 @@
-[gd_scene load_steps=16 format=3 uid="uid://c52qkndvhk2o7"]
+[gd_scene load_steps=15 format=3 uid="uid://cl3a4sks4ujta"]
 
-[ext_resource type="Script" path="res://scripts/crate.gd" id="1_eldjo"]
-[ext_resource type="Texture2D" uid="uid://88pqnj7ubvlb" path="res://assets/crate.png" id="2_lxuid"]
-[ext_resource type="Texture2D" uid="uid://dmvyupncmj7mk" path="res://assets/interact_warning.png" id="3_hwq1v"]
-[ext_resource type="Texture2D" uid="uid://cxjytqlvyn46u" path="res://assets/indicator.png" id="4_k5adi"]
+[ext_resource type="Texture2D" uid="uid://b1gwifc3wdt77" path="res://assets/note.png" id="1_3kli6"]
+[ext_resource type="Script" path="res://scripts/fun_fact_note.gd" id="1_5d75s"]
+[ext_resource type="Texture2D" uid="uid://dmvyupncmj7mk" path="res://assets/interact_warning.png" id="2_hn5hq"]
+[ext_resource type="Texture2D" uid="uid://cxjytqlvyn46u" path="res://assets/indicator.png" id="3_7bcak"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_oet61"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_65m5r"]
 radius = 33.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1eiey"]
-atlas = ExtResource("3_hwq1v")
+atlas = ExtResource("2_hn5hq")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ney2"]
-atlas = ExtResource("3_hwq1v")
+atlas = ExtResource("2_hn5hq")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rpwu8"]
-atlas = ExtResource("3_hwq1v")
+atlas = ExtResource("2_hn5hq")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xvub4"]
-atlas = ExtResource("3_hwq1v")
+atlas = ExtResource("2_hn5hq")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_637ot"]
-atlas = ExtResource("3_hwq1v")
+atlas = ExtResource("2_hn5hq")
 region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ey1j"]
-atlas = ExtResource("3_hwq1v")
+atlas = ExtResource("2_hn5hq")
 region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oowtk"]
-atlas = ExtResource("3_hwq1v")
+atlas = ExtResource("2_hn5hq")
 region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_godng"]
-atlas = ExtResource("3_hwq1v")
+atlas = ExtResource("2_hn5hq")
 region = Rect2(224, 0, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_2n52u"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_rk0fr"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -73,43 +73,33 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_k5adi")
+"texture": ExtResource("3_7bcak")
 }],
 "loop": true,
 "name": &"player_not_close",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_geu73"]
-size = Vector2(32, 32)
-
-[node name="Crate" type="Node2D" groups=["interactables"]]
-script = ExtResource("1_eldjo")
+[node name="FunFactNote" type="Node2D"]
+script = ExtResource("1_5d75s")
 
 [node name="sprite" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(16, 16)
-texture = ExtResource("2_lxuid")
+texture = ExtResource("1_3kli6")
 
 [node name="interaction_zone" type="Area2D" parent="."]
 position = Vector2(16, 16)
 
 [node name="interaction_hitbox" type="CollisionShape2D" parent="interaction_zone"]
 position = Vector2(0, 2)
-shape = SubResource("CircleShape2D_oet61")
+shape = SubResource("CircleShape2D_65m5r")
 
 [node name="animation" type="AnimatedSprite2D" parent="."]
 position = Vector2(16, -5)
 scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_2n52u")
+sprite_frames = SubResource("SpriteFrames_rk0fr")
 animation = &"player_not_close"
 
-[node name="crate_collisions" type="StaticBody2D" parent="." groups=["interactables"]]
-position = Vector2(16, 16)
-
-[node name="crate_hitbox" type="CollisionShape2D" parent="crate_collisions"]
-shape = SubResource("RectangleShape2D_geu73")
-debug_color = Color(0.9714, 0.169984, 0, 0.42)
-
-[connection signal="body_entered" from="interaction_zone" to="." method="_on_interaction_zone_entered"]
-[connection signal="body_exited" from="interaction_zone" to="." method="_on_interaction_zone_exited"]
+[connection signal="body_entered" from="interaction_zone" to="." method="_on_interaction_zone_body_entered"]
+[connection signal="body_exited" from="interaction_zone" to="." method="_on_interaction_zone_body_exited"]
