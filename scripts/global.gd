@@ -5,6 +5,10 @@ var Transition_Shader_Progress = 1 # Transition Black Fade
 var showTransitionFade = false
 var TransitionShown = false
 
+# QUEST SYSTEM VARIABLES #
+var quests = [["getCrate", "goToNpc"], ["getCrate", "getCrate", "goToNpc"]]
+var currentPlayerQuestStep
+var closestNpcQuestIndex
 
 func _input(event):
 	if Input.is_action_just_pressed("ui_accept"):

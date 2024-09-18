@@ -27,6 +27,8 @@ window/stretch/mode="canvas_items"
 [global_group]
 
 player="player"
+npcs="all NPC characters"
+interactables="all interactable quest objects"
 
 [importer_defaults]
 

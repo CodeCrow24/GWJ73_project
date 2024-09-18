@@ -1,6 +1,7 @@
 extends Node2D
 
 var player_close = false
+@export var questIndex = 0
 
 
 func _process(_delta):
@@ -13,6 +14,7 @@ func _process(_delta):
 func _on_interaction_zone_entered(body):
 	if body.is_in_group("player"):
 		player_close = true
+		Global.closestNpcQuestIndex = questIndex
 
 
 func _on_interaction_zone_exited(body):
