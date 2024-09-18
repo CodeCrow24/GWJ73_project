@@ -1,19 +1,12 @@
-<<<<<<< HEAD
-[gd_scene load_steps=11 format=4 uid="uid://cmj1p4sgv83qu"]
-=======
-[gd_scene load_steps=6 format=4 uid="uid://cmj1p4sgv83qu"]
->>>>>>> e264ac1f79fc47259e681590109ac39a58401a78
+[gd_scene load_steps=10 format=4 uid="uid://cmj1p4sgv83qu"]
 
 [ext_resource type="Script" path="res://scripts/floors/floor_2.gd" id="1_1vrbt"]
+[ext_resource type="Texture2D" uid="uid://diuprq6vpml37" path="res://assets/level_bg.png" id="1_3lfsy"]
 [ext_resource type="Texture2D" uid="uid://d3oq0pwjcx27u" path="res://assets/tilemap.png" id="2_80thm"]
 [ext_resource type="PackedScene" uid="uid://bl4bm86r3ds2u" path="res://scenes/elevator_tile.tscn" id="3_kprqc"]
-<<<<<<< HEAD
-[ext_resource type="PackedScene" uid="uid://bbfkwlbv01sm6" path="res://scenes/player.tscn" id="4_b62sl"]
 [ext_resource type="PackedScene" uid="uid://dtv4wihrnp6ab" path="res://scenes/gui.tscn" id="5_rjfqu"]
 [ext_resource type="PackedScene" uid="uid://cvbx4tpkdo1vl" path="res://scenes/crate.tscn" id="6_lspsl"]
 [ext_resource type="PackedScene" uid="uid://dqvji6iihmuhv" path="res://scenes/npc.tscn" id="7_6bafq"]
-=======
->>>>>>> e264ac1f79fc47259e681590109ac39a58401a78
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0jnou"]
 texture = ExtResource("2_80thm")
@@ -47,6 +40,11 @@ sources/0 = SubResource("TileSetAtlasSource_0jnou")
 script = ExtResource("1_1vrbt")
 floor_name = "Floor 2"
 
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(416, 8)
+scale = Vector2(2.39931, 2.75926)
+texture = ExtResource("1_3lfsy")
+
 [node name="TileMapLayer 32x Version" type="TileMapLayer" parent="."]
 texture_filter = 1
 position = Vector2(-285, -68)
@@ -62,7 +60,6 @@ elevator_id = 1
 [node name="Elevator_1" parent="Elevators" instance=ExtResource("3_kprqc")]
 position = Vector2(-125, 60)
 
-<<<<<<< HEAD
 [node name="NPC" parent="." instance=ExtResource("7_6bafq")]
 position = Vector2(96, -152)
 questIndex = 1
@@ -70,12 +67,6 @@ questIndex = 1
 [node name="Crate" parent="." instance=ExtResource("6_lspsl")]
 position = Vector2(-183, -269)
 
-[node name="player" parent="." instance=ExtResource("4_b62sl")]
-position = Vector2(-128, 109)
-SPEED = 70
-
 [node name="GUI" parent="." instance=ExtResource("5_rjfqu")]
 
-=======
->>>>>>> e264ac1f79fc47259e681590109ac39a58401a78
 [node name="Stairs" type="Node2D" parent="."]
