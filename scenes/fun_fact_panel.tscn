@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://cii4qj48mqohe"]
+
+[ext_resource type="Texture2D" uid="uid://d20qmcvg01xam" path="res://assets/GUI/elevator/ControlPanelBackground.png" id="1_2uie3"]
+[ext_resource type="Script" path="res://scripts/fun_fact_panel.gd" id="2_xd1ia"]
+
+[node name="FunFactPanel" type="NinePatchRect"]
+texture_filter = 1
+offset_top = 400.0
+offset_right = 100.0
+offset_bottom = 440.0
+scale = Vector2(3, 3)
+texture = ExtResource("1_2uie3")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+script = ExtResource("2_xd1ia")
+
+[node name="did you know" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 741.0
+offset_bottom = 138.0
+scale = Vector2(0.1, 0.1)
+theme_override_font_sizes/font_size = 100
+text = "Did you know..."
+
+[node name="FunFactLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 13.0
+offset_right = 1691.0
+offset_bottom = 455.0
+scale = Vector2(0.055, 0.055)
+theme_override_font_sizes/font_size = 100
+text = "...fun fact"
+autowrap_mode = 3
