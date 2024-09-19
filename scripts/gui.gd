@@ -18,6 +18,7 @@ func show_level_select(elevator):
 	$transition_shader.set_curtain()
 	Global.showTransitionFade = true
 	$AnimationPlayer.play("show_level_select")
+	$elevator_music.play()
 	#$LevelSelect.visible = true
 	
 func hide_level_select():
@@ -25,6 +26,8 @@ func hide_level_select():
 	get_tree().root.get_node("main").get_node("player/Camera2D").position_smoothing_enabled = false
 	$AnimationPlayer.play("hide_level_select")
 	Global.showTransitionFade = false
+	$elevator_music.stop()
+	$elevator_bell.play()
 	#$Timer.start()
 
 func stairs_transition_in(DestinationFloor, stairs_type, stairs_id):
@@ -48,10 +51,3 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		$AnimationPlayer.play("StairsFadeIn")
 	elif anim_name == "StairsFadeOut":
 		get_tree().root.get_node("main").get_node("player/Camera2D").position_smoothing_enabled = true
-
-
-func show_funfact(funfact):
-	$FunFactPanel.show_funfact(funfact)
-
-func hide_funfact():
-	$FunFactPanel.hide_funfact()
