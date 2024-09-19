@@ -12,6 +12,8 @@ func floor_exited():
 		i.turn_off()
 	for i in $Stairs.get_children():
 		i.turn_off()
+	for i in $interactables.get_children():
+		i.turn_off()
 		
 
 
@@ -21,6 +23,8 @@ func floor_entered():
 	for i in $Elevators.get_children():
 		i.turn_on()
 	for i in $Stairs.get_children():
+		i.turn_on()
+	for i in $interactables.get_children():
 		i.turn_on()
 
 # Called when the node enters the scene tree for the first time.

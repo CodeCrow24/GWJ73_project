@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://dlupbvrc14e5e"]
+[gd_scene load_steps=8 format=4 uid="uid://dlupbvrc14e5e"]
 
 [ext_resource type="Script" path="res://scripts/floors/floor_0.gd" id="1_dyr8h"]
 [ext_resource type="Texture2D" uid="uid://d3oq0pwjcx27u" path="res://assets/tilemap.png" id="2_cx8p2"]
 [ext_resource type="PackedScene" uid="uid://bl4bm86r3ds2u" path="res://scenes/elevator_tile.tscn" id="3_3i5tn"]
+[ext_resource type="PackedScene" uid="uid://dqvji6iihmuhv" path="res://scenes/npc.tscn" id="5_rahg3"]
 [ext_resource type="PackedScene" uid="uid://bxwjnoi46axp3" path="res://scenes/stairs_tile.tscn" id="7_rwgxl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kpob5"]
@@ -62,3 +63,8 @@ DestinationFloor = "Floor 1"
 position = Vector2(67, -42)
 stairs_id = 1
 DestinationFloor = "Floor 1"
+
+[node name="interactables" type="Node2D" parent="."]
+
+[node name="NPC_2" parent="interactables" instance=ExtResource("5_rahg3")]
+position = Vector2(-18, -150)
