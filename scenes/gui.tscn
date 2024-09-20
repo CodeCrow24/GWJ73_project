@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://dtv4wihrnp6ab"]
+[gd_scene load_steps=16 format=3 uid="uid://dtv4wihrnp6ab"]
 
 [ext_resource type="PackedScene" uid="uid://dobrbfx23cohb" path="res://scenes/control_panel.tscn" id="1_fvcd6"]
 [ext_resource type="Script" path="res://scripts/gui.gd" id="1_vmf71"]
 [ext_resource type="Shader" path="res://shaders/transition.gdshader" id="3_5f8s5"]
 [ext_resource type="Texture2D" uid="uid://dc5qvbc0g8c1r" path="res://assets/GUI/curtain.png" id="4_d5433"]
 [ext_resource type="Script" path="res://scripts/transition_shader.gd" id="5_g0gfm"]
+[ext_resource type="PackedScene" uid="uid://cii4qj48mqohe" path="res://scenes/fun_fact_panel.tscn" id="6_egphb"]
 [ext_resource type="AudioStream" uid="uid://5l1q0k3pis7t" path="res://assets/sounds/elevator_music.mp3" id="6_utgkl"]
 [ext_resource type="AudioStream" uid="uid://c688qh2fea51g" path="res://assets/sounds/elevator_bell.mp3" id="7_yiugb"]
 
@@ -148,6 +149,13 @@ offset_right = -150.0
 offset_bottom = -185.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="FunFactPanel" parent="." instance=ExtResource("6_egphb")]
+visible = false
+offset_left = 425.0
+offset_top = 266.0
+offset_right = 525.0
+offset_bottom = 306.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

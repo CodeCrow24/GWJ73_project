@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cvbx4tpkdo1vl"]
+[gd_scene load_steps=16 format=3 uid="uid://c52qkndvhk2o7"]
 
 [ext_resource type="Script" path="res://scripts/crate.gd" id="1_eldjo"]
 [ext_resource type="Texture2D" uid="uid://88pqnj7ubvlb" path="res://assets/crate.png" id="2_lxuid"]
