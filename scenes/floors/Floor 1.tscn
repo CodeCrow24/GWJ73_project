@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bl4bm86r3ds2u" path="res://scenes/elevator_tile.tscn" id="4_at65u"]
 [ext_resource type="PackedScene" uid="uid://bndbuhrc7sla5" path="res://scenes/stairs_tile_down.tscn" id="5_i1khl"]
 [ext_resource type="PackedScene" uid="uid://bov4gy0wflpqf" path="res://scenes/puddle.tscn" id="5_sqrr7"]
+[ext_resource type="PackedScene" uid="uid://cvbx4tpkdo1vl" path="res://scenes/crate.tscn" id="5_ku20i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s6nuq"]
 texture = ExtResource("3_mh2lh")
@@ -68,3 +69,7 @@ DestinationFloor = "Floor 0"
 
 [node name="Puddle" parent="Puddles" instance=ExtResource("5_sqrr7")]
 position = Vector2(337, 37)
+[node name="interactables" type="Node2D" parent="."]
+
+[node name="Crate_2" parent="interactables" instance=ExtResource("5_ku20i")]
+position = Vector2(63, -9)

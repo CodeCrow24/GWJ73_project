@@ -14,6 +14,7 @@ var currentStepIndex = 0    # Index of current step
 var closeToObject = false   # If player is close to a quest object (npc, crate, etc)
 var closestNpc              # Npc that is closest to player
 var closestObjectType       # Type of closest quest object
+var activeQuestIds          # IDs of quest objects
 
 
 
@@ -112,7 +113,7 @@ func _input(_event):
 	
 	# QUEST SYSTEM { #
 	if Input.is_action_just_pressed("interact") and closeToObject:
-		print_rich("[color=white][b][DEBUG]: Interacted[/b][/color]")
+		print_rich("[color=white][b][DEBUG]: Interacted, type: [/b][/color]", closestObjectType)
 		handleInteraction(closestObjectType)
 	# } QUEST SYSTEM #
 		
@@ -123,11 +124,12 @@ func _input(_event):
 func startQuest(index : int, hostNpc):
 	host = hostNpc
 	activeQuestIndex = index
+	activeQuestIds = Global.questIDs[activeQuestIndex]
 	activeQuest = Global.quests[index]
 	numQuestTasks = activeQuest.size()
 	numCompletedTasks = 0
 	isQuestActive = true
-	printerr("started quest: ", activeQuest)
+	print_rich("[color=light_blue][b][DEBUG]: started quest: [/b][/color]", activeQuest)
 	
 func completeStep():
 	print_rich("[color=yellow][b][DEBUG]: current step finished: [/b][/color]", currentStep())
@@ -141,17 +143,28 @@ func nextStep() -> String:
 	return activeQuest[currentStepIndex + 1]
 	
 func currentStep() -> String:
-	return activeQuest[currentStepIndex]
+	if currentStepIndex < activeQuest.size():
+		return activeQuest[currentStepIndex]
+	else:
+		return "none"
+	
+func currentStepID() -> int:
+	if isQuestActive:
+		return activeQuestIds[currentStepIndex]
+	else:
+		return 0
 
 func checkQuestCompletion():
 	if numCompletedTasks == numQuestTasks and numQuestTasks != 0 :
 		print_rich("[color=green][b][DEBUG]: quest completed: [/b][/color]", activeQuest)
+		Global.questCompleteds[activeQuestIndex] = true
 		host = null
 		activeQuestIndex = null
 		activeQuest = null
 		numQuestTasks = 0
 		numCompletedTasks = 0
 		isQuestActive = false
+		currentStepIndex = 0
 	
 
 
@@ -159,7 +172,6 @@ func checkQuestCompletion():
 
 func _on_interaction_radius_body_entered(body):
 	if body.is_in_group("npcs") or body.is_in_group("interactables"):
-		printerr("near object")
 		closeToObject = true
 	if body.is_in_group("npcs"):
 		closestNpc = body
@@ -171,19 +183,23 @@ func _on_interaction_radius_body_entered(body):
 
 func _on_interaction_radius_body_exited(body):
 	if body.is_in_group("npcs") or body.is_in_group("interactables"):
-		printerr("not near object")
 		closeToObject = false
 		
 	
 
 func handleInteraction(type: String):
 	if type == "crate":
-		if  isQuestActive and currentStep() == "getCrate":
+		printerr("fuck crates, quest activty: ", isQuestActive, " stepID: ", currentStepID())
+		if  isQuestActive and currentStep() == "getCrate" and Global.closestInteractableID == currentStepID():
 			completeStep()
 	if type == "npc":
+		printerr("fuck npcs, quest activty: ", isQuestActive, " stepID: ", currentStepID())
 		if !isQuestActive:
-			startQuest(Global.closestNpcQuestIndex, closestNpc)
-		elif isQuestActive and currentStep() == "goToNpc":
+			if !Global.questCompleteds[Global.closestNpcQuestIndex]:
+				startQuest(Global.closestNpcQuestIndex, closestNpc)
+			else: 
+				print_rich("[color=red][b][DEBUG]: QUEST ALREADY FINISHED[/b][/color]")
+		elif isQuestActive and currentStep() == "goToNpc" and Global.closestInteractableID == currentStepID():
 			completeStep()
 	
 		
