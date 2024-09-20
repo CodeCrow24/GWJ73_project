@@ -15,11 +15,17 @@ var closeToObject = false   # If player is close to a quest object (npc, crate, 
 var closestNpc              # Npc that is closest to player
 var closestObjectType       # Type of closest quest object
 
+
+
+@export var Max_Speed = 70
 @export var SPEED = 50
+
 var player_state
 var last_dir = "s-idle"
 
 var current_stairs = null
+
+var ice_areas = []
 
 func enter_stairs(stairs):
 	print("enter")
@@ -46,7 +52,7 @@ func _physics_process(delta):
 	
 			
 		
-	
+	SPEED = Max_Speed
 	
 	if current_stairs != null:
 		direction.y = 0
@@ -59,8 +65,28 @@ func _physics_process(delta):
 		position += velocity * delta
 	
 	else:
-		velocity = direction * SPEED
+		if len(ice_areas) > 0:
+			SPEED += 20
+		
+		
+		if direction != Vector2.ZERO:
+			#direction += input_vector * ACCELERATION
+			#direction = direction.clamped(MAX_SPEED)
+			velocity = direction * SPEED
+			direction.normalized()
+			
+		elif len(ice_areas) > 0:
+			
+			velocity = lerp(velocity, Vector2.ZERO, 0.03)
+		else:
+			velocity = direction * SPEED
+		
+		
 		move_and_slide()
+		for i in get_slide_collision_count():
+			var c = get_slide_collision(i)
+			if c.get_collider() is RigidBody2D:
+				c.get_collider().apply_central_impulse(-c.get_normal() * 10)
 	
 	play_animation(direction)
 	

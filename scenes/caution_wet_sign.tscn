@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbp0lnwxv44hn"]
+
+[ext_resource type="Texture2D" uid="uid://ljbn4j8w28h" path="res://assets/caution_wet_sign.png" id="2_lomu3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_01nfn"]
+size = Vector2(18, 26)
+
+[node name="CautionWetSign" type="RigidBody2D"]
+position = Vector2(-25, 35)
+mass = 5.0
+gravity_scale = 0.0
+lock_rotation = true
+linear_damp = 2.0
+angular_damp = 2.0
+
+[node name="CautionWetSign" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_lomu3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 2)
+shape = SubResource("RectangleShape2D_01nfn")

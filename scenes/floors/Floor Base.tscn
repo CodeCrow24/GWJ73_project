@@ -46,3 +46,5 @@ tile_set = SubResource("TileSet_pnkff")
 position = Vector2(43, 52)
 
 [node name="Stairs" type="Node2D" parent="."]
+
+[node name="Puddles" type="Node2D" parent="."]

@@ -194,6 +194,7 @@ height = 20.0
 radius = 27.0
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
+motion_mode = 1
 script = ExtResource("1_u7pjb")
 SPEED = 80
 

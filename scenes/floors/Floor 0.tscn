@@ -64,6 +64,8 @@ position = Vector2(67, -42)
 stairs_id = 1
 DestinationFloor = "Floor 1"
 
+[node name="Puddles" type="Node2D" parent="."]
+
 [node name="FunFactNote" parent="." instance=ExtResource("5_hyyk7")]
 position = Vector2(-21, 105)
 funfact = "...that touching grass is unnecessary?"
