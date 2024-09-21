@@ -1,7 +1,6 @@
 extends Node2D
 
-@export var charTime = 0.1
-@export var read_time = 2
+@export var charTime = 0.05
 var percentR = 0
 var showText = false
 var showBox = false
@@ -13,6 +12,7 @@ var showingText = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$text.visible_ratio = 0.0
+	$char_timer.wait_time = charTime
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

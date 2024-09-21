@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cl3a4sks4ujta"]
+[gd_scene load_steps=15 format=3 uid="uid://bat3qn2yib33q"]
 
 [ext_resource type="Texture2D" uid="uid://b1gwifc3wdt77" path="res://assets/note.png" id="1_3kli6"]
 [ext_resource type="Script" path="res://scripts/fun_fact_note.gd" id="1_5d75s"]
@@ -96,6 +96,8 @@ position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_65m5r")
 
 [node name="animation" type="AnimatedSprite2D" parent="."]
+z_index = 35
+z_as_relative = false
 position = Vector2(16, -5)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_rk0fr")

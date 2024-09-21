@@ -63,12 +63,14 @@ position = Vector2(-125, 60)
 
 [node name="interactables" type="Node2D" parent="."]
 
-[node name="NPC_1" parent="interactables" instance=ExtResource("7_6bafq")]
+[node name="NPC" parent="interactables" instance=ExtResource("7_6bafq")]
 position = Vector2(96, -152)
-questIndex = 2
+questIndex = 1
 interactableID = 1
+defaultMsg = "I have no requests. for you at the moment."
+npcName = "Tom"
 
-[node name="Crate_1" parent="interactables" instance=ExtResource("6_lspsl")]
+[node name="Crate" parent="interactables" instance=ExtResource("6_lspsl")]
 position = Vector2(-183, -269)
 interactableID = 1
 

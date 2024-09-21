@@ -16,6 +16,9 @@ var closestNpc              # Npc that is closest to player
 var closestObjectType       # Type of closest quest object
 var activeQuestIds          # IDs of quest objects
 
+# DIALOUGE VARIABLES #
+var speaking = false
+
 
 
 @export var Max_Speed = 70
@@ -37,12 +40,9 @@ func exit_stairs():
 	current_stairs = null
 
 func _physics_process(delta):
-	# QUEST SYSTEM PROCESS { #
 	
+	speaking = Global.showDiaBox
 	
-	
-	
-	# } QUEST SYSTEM PROCESS #
 	var direction = Input.get_vector("left", "right", "up", "down")
 	
 	if direction.x == 0 and direction.y == 0:
@@ -82,14 +82,14 @@ func _physics_process(delta):
 		else:
 			velocity = direction * SPEED
 		
-		
-		move_and_slide()
+		if !speaking:
+			move_and_slide()
 		for i in get_slide_collision_count():
 			var c = get_slide_collision(i)
 			if c.get_collider() is RigidBody2D:
 				c.get_collider().apply_central_impulse(-c.get_normal() * 10)
-	
-	play_animation(direction)
+	if !speaking:
+		play_animation(direction)
 	
 func play_animation(dir):
 	if player_state== "idle":
@@ -129,7 +129,9 @@ func startQuest(index : int, hostNpc):
 	numQuestTasks = activeQuest.size()
 	numCompletedTasks = 0
 	isQuestActive = true
+	Global.questStarted[index] = true
 	print_rich("[color=light_blue][b][DEBUG]: started quest: [/b][/color]", activeQuest)
+	
 	
 func completeStep():
 	print_rich("[color=yellow][b][DEBUG]: current step finished: [/b][/color]", currentStep())
@@ -189,11 +191,13 @@ func _on_interaction_radius_body_exited(body):
 
 func handleInteraction(type: String):
 	if type == "crate":
-		printerr("fuck crates, quest activty: ", isQuestActive, " stepID: ", currentStepID())
+		printerr("iID crates, quest activty: ", isQuestActive, " stepID: ", currentStepID())
 		if  isQuestActive and currentStep() == "getCrate" and Global.closestInteractableID == currentStepID():
 			completeStep()
 	if type == "npc":
-		printerr("fuck npcs, quest activty: ", isQuestActive, " stepID: ", currentStepID())
+		if Global.currentText != null:
+			Global.showDiaBox = true
+		printerr("iID npcs, quest activty: ", isQuestActive, " stepID: ", currentStepID())
 		if !isQuestActive:
 			if !Global.questCompleteds[Global.closestNpcQuestIndex]:
 				startQuest(Global.closestNpcQuestIndex, closestNpc)

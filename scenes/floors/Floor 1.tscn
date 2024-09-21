@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://bdjmmvouoqwj0"]
+[gd_scene load_steps=10 format=4 uid="uid://bdjmmvouoqwj0"]
 
 [ext_resource type="Script" path="res://scripts/floors/floor_1.gd" id="1_sakti"]
 [ext_resource type="Texture2D" uid="uid://d3oq0pwjcx27u" path="res://assets/tilemap.png" id="3_mh2lh"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bndbuhrc7sla5" path="res://scenes/stairs_tile_down.tscn" id="5_i1khl"]
 [ext_resource type="PackedScene" uid="uid://cvbx4tpkdo1vl" path="res://scenes/crate.tscn" id="5_ku20i"]
 [ext_resource type="PackedScene" path="res://scenes/puddle.tscn" id="5_sqrr7"]
+[ext_resource type="PackedScene" uid="uid://dqvji6iihmuhv" path="res://scenes/npc.tscn" id="7_sy7hm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s6nuq"]
 texture = ExtResource("3_mh2lh")
@@ -72,5 +73,12 @@ position = Vector2(337, 37)
 
 [node name="interactables" type="Node2D" parent="."]
 
-[node name="Crate_2" parent="interactables" instance=ExtResource("5_ku20i")]
+[node name="Crate" parent="interactables" instance=ExtResource("5_ku20i")]
 position = Vector2(63, -9)
+
+[node name="NPC" parent="interactables" instance=ExtResource("7_sy7hm")]
+position = Vector2(170, 190)
+questIndex = 2
+interactableID = 2
+defaultMsg = "I'm Busy, leave me alone."
+npcName = "Thompson"

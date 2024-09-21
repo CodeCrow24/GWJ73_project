@@ -3,6 +3,8 @@ extends Node2D
 var player_close = false
 @export var questIndex = 0
 @export var interactableID = 0
+@export var defaultMsg = "example message"
+@export var npcName = "Mark"
 
 
 func _process(_delta):
@@ -18,6 +20,14 @@ func _on_interaction_zone_entered(body):
 		Global.closestNpcQuestIndex = questIndex
 		Global.closestInteractableID = interactableID
 		print("set global ID because of close player: ", interactableID)
+		Global.currentName = npcName
+		if !Global.questCompleteds[questIndex] and !Global.questStarted[questIndex]:
+			Global.currentText = Global.questStartingMsgs[questIndex]
+		elif Global.questStarted[questIndex]:
+			Global.currentText = Global.questEndingMsgs[questIndex]
+		else:
+			Global.currentText = defaultMsg
+		
 
 
 func _on_interaction_zone_exited(body):
