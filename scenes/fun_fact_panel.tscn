@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cii4qj48mqohe"]
+[gd_scene load_steps=3 format=3 uid="uid://ddvvmf0xvqtwj"]
 
 [ext_resource type="Texture2D" uid="uid://d20qmcvg01xam" path="res://assets/GUI/elevator/ControlPanelBackground.png" id="1_2uie3"]
 [ext_resource type="Script" path="res://scripts/fun_fact_panel.gd" id="2_xd1ia"]

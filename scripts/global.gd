@@ -37,8 +37,6 @@ var current_time = Time.get_time_dict_from_system()
 func _input(_event):
 	if Input.is_action_just_pressed("ui_accept"):
 		Global.showTransitionFade = false
-	if Input.is_action_just_pressed("[DEBUG_BUTTON]"):
-		showDiaBox = true
 
 func _process(delta: float) -> void:
 	current_time = Time.get_time_dict_from_system()

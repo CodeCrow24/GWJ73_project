@@ -3,7 +3,7 @@ extends CanvasLayer
 var stairDestData = ["Floor", "Stairs", 0]
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	$bg_music.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -14,6 +14,7 @@ func _process(_delta: float) -> void:
 
 func show_level_select(elevator):
 	print("elevator")
+	$bg_music.stop()
 	$LevelSelect.elevator_that_opened_level_select  = elevator
 	$transition_shader.set_curtain()
 	Global.showTransitionFade = true
@@ -28,6 +29,7 @@ func hide_level_select():
 	Global.showTransitionFade = false
 	$elevator_music.stop()
 	$elevator_bell.play()
+	$bg_music.play()
 	#$Timer.start()
 
 func stairs_transition_in(DestinationFloor, stairs_type, stairs_id):

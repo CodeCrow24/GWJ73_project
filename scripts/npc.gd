@@ -23,7 +23,7 @@ func _on_interaction_zone_entered(body):
 		Global.currentName = npcName
 		if !Global.questCompleteds[questIndex] and !Global.questStarted[questIndex]:
 			Global.currentText = Global.questStartingMsgs[questIndex]
-		elif Global.questStarted[questIndex]:
+		elif Global.questStarted[questIndex] and !Global.questCompleteds[questIndex]:
 			Global.currentText = Global.questEndingMsgs[questIndex]
 		else:
 			Global.currentText = defaultMsg
