@@ -23,3 +23,11 @@ func _input(_event):
 
 func _process(delta: float) -> void:
 	current_time = Time.get_time_dict_from_system()
+# INTERACTION SYSTEM VARIABLES #
+var currentText = "example text"
+var currentName = "[Mr. GAYGAY]" #Longest Possible Name
+var showDiaBox = false
+
+func _input(_event):
+	if Input.is_action_just_pressed("[DEBUG_BUTTON]"):
+		showDiaBox = true

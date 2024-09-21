@@ -1,14 +1,18 @@
-[gd_scene load_steps=21 format=3 uid="uid://dtv4wihrnp6ab"]
+[gd_scene load_steps=23 format=3 uid="uid://dtv4wihrnp6ab"]
 
 [ext_resource type="PackedScene" uid="uid://dobrbfx23cohb" path="res://scenes/control_panel.tscn" id="1_fvcd6"]
 [ext_resource type="Script" path="res://scripts/gui.gd" id="1_vmf71"]
 [ext_resource type="Shader" path="res://shaders/transition.gdshader" id="3_5f8s5"]
 [ext_resource type="Texture2D" uid="uid://dc5qvbc0g8c1r" path="res://assets/GUI/curtain.png" id="4_d5433"]
 [ext_resource type="Script" path="res://scripts/transition_shader.gd" id="5_g0gfm"]
-[ext_resource type="PackedScene" uid="uid://cii4qj48mqohe" path="res://scenes/fun_fact_panel.tscn" id="6_egphb"]
+[ext_resource type="PackedScene" path="res://scenes/fun_fact_panel.tscn" id="6_egphb"]
 [ext_resource type="AudioStream" uid="uid://5l1q0k3pis7t" path="res://assets/sounds/elevator_music.mp3" id="6_utgkl"]
 [ext_resource type="AudioStream" uid="uid://c688qh2fea51g" path="res://assets/sounds/elevator_bell.mp3" id="7_yiugb"]
 [ext_resource type="PackedScene" uid="uid://cak0o2dt5bjn7" path="res://scenes/flipchart_drawing_panel.tscn" id="9_js74t"]
+[ext_resource type="Texture2D" uid="uid://pw55vc34t2qp" path="res://assets/dialouge_box.png" id="9_3nfvn"]
+[ext_resource type="Script" path="res://scripts/dialouge_box.gd" id="9_x0xer"]
+[ext_resource type="FontFile" uid="uid://ongt53bhj2f0" path="res://assets/GUI/fonts/pixelFont.ttf" id="11_ofo37"]
+[ext_resource type="Texture2D" uid="uid://dnge83uyk55k7" path="res://assets/GUI/enter_indicator.png" id="12_fcptc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_44ys7"]
 shader = ExtResource("3_5f8s5")
@@ -48,6 +52,7 @@ tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/path = NodePath("FlipchartDrawingPanel:position")
+tracks/2/path = NodePath("dialouge_box:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -91,6 +96,7 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+"values": [Vector2(0, 162)]
 }
 
 [sub_resource type="Animation" id="Animation_vggvo"]
@@ -263,6 +269,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
+[sub_resource type="Animation" id="Animation_tjkmq"]
+resource_name = "showDiaBox"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dialouge_box:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 164), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gg8gh"]
+resource_name = "hideDiaBox"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dialouge_box:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 164)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u4pwe"]
@@ -275,8 +309,16 @@ _data = {
 "hide_level_select": SubResource("Animation_kyhge"),
 "show_flipchart": SubResource("Animation_d7fdm"),
 "show_funfact": SubResource("Animation_ebtvc"),
+"hideDiaBox": SubResource("Animation_gg8gh"),
+"hide_level_select": SubResource("Animation_kyhge"),
+"showDiaBox": SubResource("Animation_tjkmq"),
 "show_level_select": SubResource("Animation_agfrq")
 }
+
+[sub_resource type="LabelSettings" id="LabelSettings_1us3n"]
+line_spacing = 1.0
+font = ExtResource("11_ofo37")
+font_size = 30
 
 [node name="GUI" type="CanvasLayer"]
 script = ExtResource("1_vmf71")
@@ -341,5 +383,56 @@ offset_left = 451.0
 offset_top = 175.0
 offset_right = 451.0
 offset_bottom = 175.0
+[node name="dialouge_box" type="Node2D" parent="."]
+position = Vector2(0, 162)
+script = ExtResource("9_x0xer")
+
+[node name="sprite" type="Sprite2D" parent="dialouge_box"]
+texture_filter = 1
+position = Vector2(576, 565)
+scale = Vector2(3, 3)
+texture = ExtResource("9_3nfvn")
+
+[node name="text" type="Label" parent="dialouge_box"]
+texture_filter = 1
+offset_left = 18.0
+offset_top = 539.0
+offset_right = 1136.0
+offset_bottom = 639.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/font_size = 10
+text = "enter"
+label_settings = SubResource("LabelSettings_1us3n")
+autowrap_mode = 3
+
+[node name="speaker_name" type="Label" parent="dialouge_box"]
+texture_filter = 1
+offset_left = 17.0
+offset_top = 502.0
+offset_right = 184.0
+offset_bottom = 526.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.0
+theme_override_font_sizes/font_size = 10
+text = "[SYSTEM]"
+label_settings = SubResource("LabelSettings_1us3n")
+autowrap_mode = 2
+
+[node name="char_timer" type="Timer" parent="dialouge_box"]
+wait_time = 0.1
+autostart = true
+
+[node name="read_timer" type="Timer" parent="dialouge_box"]
+
+[node name="text_finished" type="Sprite2D" parent="dialouge_box"]
+texture_filter = 1
+position = Vector2(1092, 510)
+scale = Vector2(3, 3)
+texture = ExtResource("12_fcptc")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="dialouge_box" method="_on_animation_player_finished"]
+[connection signal="timeout" from="dialouge_box/char_timer" to="dialouge_box" method="_on_timer_timeout"]
