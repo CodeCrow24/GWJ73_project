@@ -1,46 +1,50 @@
-[gd_scene load_steps=15 format=3 uid="uid://cl3a4sks4ujta"]
+[gd_scene load_steps=17 format=3 uid="uid://bs4wrvgwmco1k"]
 
-[ext_resource type="Texture2D" uid="uid://b1gwifc3wdt77" path="res://assets/note.png" id="1_3kli6"]
-[ext_resource type="Script" path="res://scripts/fun_fact_note.gd" id="1_5d75s"]
-[ext_resource type="Texture2D" uid="uid://dmvyupncmj7mk" path="res://assets/interact_warning.png" id="2_hn5hq"]
-[ext_resource type="Texture2D" uid="uid://cxjytqlvyn46u" path="res://assets/indicator.png" id="3_7bcak"]
+[ext_resource type="Script" path="res://scripts/flipchart.gd" id="1_spu7a"]
+[ext_resource type="Texture2D" uid="uid://dc1qc4sweq3vo" path="res://assets/test.png" id="2_bj4dh"]
+[ext_resource type="Texture2D" uid="uid://dq81rq8wpsps0" path="res://assets/flipchart.png" id="2_yhunb"]
+[ext_resource type="Texture2D" uid="uid://dmvyupncmj7mk" path="res://assets/interact_warning.png" id="4_qskcu"]
+[ext_resource type="Texture2D" uid="uid://cxjytqlvyn46u" path="res://assets/indicator.png" id="5_as3lo"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_65m5r"]
-radius = 33.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_t62pr"]
+radius = 41.0122
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fskl7"]
+size = Vector2(32, 67)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1eiey"]
-atlas = ExtResource("2_hn5hq")
+atlas = ExtResource("4_qskcu")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ney2"]
-atlas = ExtResource("2_hn5hq")
+atlas = ExtResource("4_qskcu")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rpwu8"]
-atlas = ExtResource("2_hn5hq")
+atlas = ExtResource("4_qskcu")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xvub4"]
-atlas = ExtResource("2_hn5hq")
+atlas = ExtResource("4_qskcu")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_637ot"]
-atlas = ExtResource("2_hn5hq")
+atlas = ExtResource("4_qskcu")
 region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7ey1j"]
-atlas = ExtResource("2_hn5hq")
+atlas = ExtResource("4_qskcu")
 region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oowtk"]
-atlas = ExtResource("2_hn5hq")
+atlas = ExtResource("4_qskcu")
 region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_godng"]
-atlas = ExtResource("2_hn5hq")
+atlas = ExtResource("4_qskcu")
 region = Rect2(224, 0, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_rk0fr"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_gcvg6"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -73,33 +77,44 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_7bcak")
+"texture": ExtResource("5_as3lo")
 }],
 "loop": true,
 "name": &"player_not_close",
 "speed": 5.0
 }]
 
-[node name="FunFactNote" type="Node2D"]
-script = ExtResource("1_5d75s")
+[node name="flipchart" type="Node2D"]
+script = ExtResource("1_spu7a")
 
-[node name="sprite" type="Sprite2D" parent="."]
+[node name="Canvas" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(16, 16)
-texture = ExtResource("1_3kli6")
+position = Vector2(0, -8)
+texture = ExtResource("2_bj4dh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_yhunb")
 
 [node name="interaction_zone" type="Area2D" parent="."]
-position = Vector2(16, 16)
 
 [node name="interaction_hitbox" type="CollisionShape2D" parent="interaction_zone"]
-position = Vector2(0, 2)
-shape = SubResource("CircleShape2D_65m5r")
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_t62pr")
+
+[node name="flipchart_collisions" type="StaticBody2D" parent="."]
+position = Vector2(16, 16)
+
+[node name="flipchart_hitbox" type="CollisionShape2D" parent="flipchart_collisions"]
+position = Vector2(-16, -15.5)
+shape = SubResource("RectangleShape2D_fskl7")
+debug_color = Color(0.9714, 0.169984, 0, 0.42)
 
 [node name="animation" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(16, -5)
+position = Vector2(0, -44)
 scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_rk0fr")
+sprite_frames = SubResource("SpriteFrames_gcvg6")
 animation = &"player_not_close"
 
 [connection signal="body_entered" from="interaction_zone" to="." method="_on_interaction_zone_body_entered"]

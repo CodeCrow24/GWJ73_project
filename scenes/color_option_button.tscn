@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://biiaktqydi4cp"]
+
+[ext_resource type="Texture2D" uid="uid://d36gmt2son2lx" path="res://assets/GUI/elevator/colorselectoptions.png" id="1_2tk43"]
+[ext_resource type="Script" path="res://scripts/color_option_button.gd" id="1_264pn"]
+
+[node name="ColorOptionButton" type="Button"]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = -1
+anchor_left = 0.016
+anchor_top = 0.028
+anchor_right = 0.016
+anchor_bottom = 0.028
+offset_left = -18.432
+offset_top = -18.144
+offset_right = 17.568
+offset_bottom = 17.856
+flat = true
+script = ExtResource("1_264pn")
+
+[node name="Colorselectoptions" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("1_2tk43")
+centered = false
+hframes = 6
+vframes = 2
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]

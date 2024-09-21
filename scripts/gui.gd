@@ -56,3 +56,8 @@ func show_funfact(funfact):
 	$FunFactPanel.show_funfact(funfact)
 func hide_funfact():
 	$FunFactPanel.hide_funfact()
+
+func show_flipchart(body):
+	$FlipchartDrawingPanel.show_flipchart(body)
+func hide_flipchart():
+	$FlipchartDrawingPanel.hide_flipchart()
