@@ -15,6 +15,11 @@ var currentPlayerQuestStep
 var closestNpcQuestIndex
 var closestInteractableID = 0
 
+# INTERACTION SYSTEM VARIABLES #
+var currentText = "example text"
+var currentName = "[Mr. GAYGAY]" #Longest Possible Name
+var showDiaBox = false
+
 func _input(_event):
-	if Input.is_action_just_pressed("ui_accept"):
-		Global.showTransitionFade = false
+	if Input.is_action_just_pressed("[DEBUG_BUTTON]"):
+		showDiaBox = true
