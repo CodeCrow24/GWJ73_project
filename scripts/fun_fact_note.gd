@@ -15,7 +15,11 @@ func _process(_delta):
 func _input(event):
 	if Input.is_action_just_pressed("interact"):
 		if player_close:
-			get_tree().root.get_node("main/GUI").show_funfact(funfact)
+			if get_tree().root.get_node("main/GUI/FunFactPanel").visible:
+				get_tree().root.get_node("main/GUI").hide_funfact()
+			else:
+				get_tree().root.get_node("main/GUI").show_funfact(funfact)
+			
 
 
 func _on_interaction_zone_body_entered(body: Node2D) -> void:

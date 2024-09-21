@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cld3irlgj8ai3"
-path="res://.godot/imported/enter_indicator.png-59af806dc3d83597e65648e9c186fc16.ctex"
+uid="uid://d36gmt2son2lx"
+path="res://.godot/imported/colorselectoptions.png-238751609026f281d6a61cd0e35a9119.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/enter_indicator.png"
-dest_files=["res://.godot/imported/enter_indicator.png-59af806dc3d83597e65648e9c186fc16.ctex"]
+source_file="res://assets/GUI/elevator/colorselectoptions.png"
+dest_files=["res://.godot/imported/colorselectoptions.png-238751609026f281d6a61cd0e35a9119.ctex"]
 
 [params]
 

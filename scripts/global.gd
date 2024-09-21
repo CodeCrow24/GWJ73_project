@@ -32,10 +32,21 @@ var currentPlayerQuestStep
 var closestNpcQuestIndex
 var closestInteractableID = 0
 
+var current_time = Time.get_time_dict_from_system()
+
+func _input(_event):
+	if Input.is_action_just_pressed("ui_accept"):
+		Global.showTransitionFade = false
+	if Input.is_action_just_pressed("[DEBUG_BUTTON]"):
+		showDiaBox = true
+
+func _process(delta: float) -> void:
+	current_time = Time.get_time_dict_from_system()
 # INTERACTION SYSTEM VARIABLES #
 var currentText
 var currentName = "123456789***" #Longest Possible Name
 var showDiaBox = false
+
 var questStartingMsgs = [
 	"I just need something from the crate on the second floor, would you mind getting it for me?",
 	"Hey, do you mind doing me a favor? A friend of mine on the first floor has asked me to get him somthing from the crate on the floor above. Once you've brought it to him, please bring me somthing from the crate here.",

@@ -101,6 +101,7 @@ shape = SubResource("CircleShape2D_oet61")
 [node name="animation" type="AnimatedSprite2D" parent="."]
 z_index = 35
 z_as_relative = false
+texture_filter = 1
 position = Vector2(16, -5)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_2n52u")

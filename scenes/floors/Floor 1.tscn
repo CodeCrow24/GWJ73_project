@@ -5,8 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://bl4bm86r3ds2u" path="res://scenes/elevator_tile.tscn" id="4_at65u"]
 [ext_resource type="PackedScene" uid="uid://bndbuhrc7sla5" path="res://scenes/stairs_tile_down.tscn" id="5_i1khl"]
 [ext_resource type="PackedScene" uid="uid://cvbx4tpkdo1vl" path="res://scenes/crate.tscn" id="5_ku20i"]
-[ext_resource type="PackedScene" path="res://scenes/puddle.tscn" id="5_sqrr7"]
+
 [ext_resource type="PackedScene" uid="uid://dqvji6iihmuhv" path="res://scenes/npc.tscn" id="7_sy7hm"]
+[ext_resource type="PackedScene" uid="uid://bov4gy0wflpqf" path="res://scenes/puddle.tscn" id="5_sqrr7"]
+[ext_resource type="PackedScene" uid="uid://bs4wrvgwmco1k" path="res://scenes/flipchart.tscn" id="7_qyeex"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s6nuq"]
 texture = ExtResource("3_mh2lh")
@@ -82,3 +84,6 @@ questIndex = 2
 interactableID = 2
 defaultMsg = "I'm Busy, leave me alone."
 npcName = "Thompson"
+
+[node name="flipchart" parent="." instance=ExtResource("7_qyeex")]
+position = Vector2(28, -239)
