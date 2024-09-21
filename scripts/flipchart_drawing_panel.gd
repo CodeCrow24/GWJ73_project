@@ -1,6 +1,6 @@
 extends Control
 
-
+var current_flipchart = null
 var dynImage = Image.new()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,13 +17,13 @@ var current_color = Color(0,0,0,1)
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("exit_menu"):
 		
-		hide_flipchart()
+		get_parent().hide_flipchart()
 	if mouse_pressed:
 		
 		var cx = ($Canvas.texture.get_width() * $Canvas.scale.x)/2
 		var cy = ($Canvas.texture.get_height() * $Canvas.scale.y)/2
 		var temp = (mouse_pos - $Canvas.global_position + Vector2(cx,cy))/9
-		if temp.x > 0 and temp.x < 32 and temp.y > 0 and temp.y < 42: 
+		if temp.x > 0 and temp.x < 25 and temp.y > 0 and temp.y < 35: 
 			dynImage.set_pixel(int(temp.x),int(temp.y), current_color)
 			update_texture()
 
@@ -38,6 +38,7 @@ func _input(event: InputEvent) -> void:
 		mouse_pos = event.position 
 
 func show_flipchart(flipchart):
+	current_flipchart = flipchart
 	visible = true
 	
 	dynImage = flipchart.dynImage
@@ -45,4 +46,6 @@ func show_flipchart(flipchart):
 	
 
 func hide_flipchart():
-	visible = false
+	if current_flipchart != null:
+		current_flipchart.update_texture()
+	#visible = false

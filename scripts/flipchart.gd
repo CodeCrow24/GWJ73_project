@@ -28,8 +28,10 @@ func _process(_delta):
 func _input(event):
 	if Input.is_action_just_pressed("interact"):
 		if player_close:
-			pass
-			get_tree().root.get_node("main/GUI").show_flipchart(self)
+			if get_tree().root.get_node("main/GUI/FlipchartDrawingPanel").visible:
+				get_tree().root.get_node("main/GUI").hide_flipchart()
+			else:
+				get_tree().root.get_node("main/GUI").show_flipchart(self)
 
 func _on_interaction_zone_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):

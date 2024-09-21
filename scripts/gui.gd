@@ -51,13 +51,20 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		$AnimationPlayer.play("StairsFadeIn")
 	elif anim_name == "StairsFadeOut":
 		get_tree().root.get_node("main").get_node("player/Camera2D").position_smoothing_enabled = true
+	elif anim_name == "hide_flipchart":
+		$FlipchartDrawingPanel.hide_flipchart()
 
 func show_funfact(funfact):
 	$FunFactPanel.show_funfact(funfact)
+	$AnimationPlayer.play("show_funfact")
 func hide_funfact():
 	$FunFactPanel.hide_funfact()
+	$AnimationPlayer.play("hide_funfact")
 
 func show_flipchart(body):
+	$AnimationPlayer.play("show_flipchart")
 	$FlipchartDrawingPanel.show_flipchart(body)
+
 func hide_flipchart():
-	$FlipchartDrawingPanel.hide_flipchart()
+	$AnimationPlayer.play("hide_flipchart")
+	#$FlipchartDrawingPanel.hide_flipchart()

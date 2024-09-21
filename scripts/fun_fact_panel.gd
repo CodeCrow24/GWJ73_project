@@ -14,7 +14,8 @@ func show_funfact(funfact):
 
 
 func hide_funfact():
-	visible = false
+	pass
+	#visible = false
 
 func _process(delta: float) -> void:
 	
