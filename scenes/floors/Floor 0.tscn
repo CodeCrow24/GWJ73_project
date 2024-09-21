@@ -6,8 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cl3a4sks4ujta" path="res://scenes/fun_fact_note.tscn" id="5_hyyk7"]
 [ext_resource type="PackedScene" path="res://scenes/npc.tscn" id="6_q8b7d"]
 [ext_resource type="PackedScene" uid="uid://bgpvmvspjpb3" path="res://scenes/clock.tscn" id="7_2jx8k"]
-[ext_resource type="PackedScene" path="res://scenes/fun_fact_note.tscn" id="5_hyyk7"]
-[ext_resource type="PackedScene" uid="uid://dqvji6iihmuhv" path="res://scenes/npc.tscn" id="6_q8b7d"]
 [ext_resource type="PackedScene" uid="uid://bxwjnoi46axp3" path="res://scenes/stairs_tile.tscn" id="7_rwgxl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kpob5"]

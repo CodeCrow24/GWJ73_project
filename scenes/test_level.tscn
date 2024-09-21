@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bbfkwlbv01sm6" path="res://scenes/player.tscn" id="2_2ktdx"]
 [ext_resource type="Texture2D" uid="uid://d3oq0pwjcx27u" path="res://assets/tilemap.png" id="3_1q3am"]
 [ext_resource type="PackedScene" uid="uid://bl4bm86r3ds2u" path="res://scenes/elevator_tile.tscn" id="5_sxp5r"]
-[ext_resource type="PackedScene" uid="uid://c52qkndvhk2o7" path="res://scenes/crate.tscn" id="6_rqtyn"]
+[ext_resource type="PackedScene" uid="uid://cvbx4tpkdo1vl" path="res://scenes/crate.tscn" id="6_rqtyn"]
 [ext_resource type="PackedScene" uid="uid://dtv4wihrnp6ab" path="res://scenes/gui.tscn" id="6_uqrhs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xyhnm"]
