@@ -90,13 +90,13 @@ func _physics_process(delta):
 			var c = get_slide_collision(i)
 			if c.get_collider() is RigidBody2D:
 				c.get_collider().apply_central_impulse(-c.get_normal() * 10)
-	if !speaking:
-		play_animation(direction)
+	
+	play_animation(direction)
 	
 func play_animation(dir):
-	if player_state== "idle":
+	if player_state== "idle" or speaking:
 		$anim.play(last_dir)
-	elif player_state == "walk":
+	elif player_state == "walk" and !speaking:
 		if dir.y == -1 and dir.x == 0:
 			$anim.play("n-walk")
 			last_dir = "n-idle"

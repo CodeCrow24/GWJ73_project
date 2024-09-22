@@ -28,10 +28,12 @@ func _process(_delta):
 func _input(event):
 	if Input.is_action_just_pressed("interact"):
 		if player_close:
-			if get_tree().root.get_node("main/GUI/FlipchartDrawingPanel").visible:
+			if Global.flipchart_shown:
 				get_tree().root.get_node("main/GUI").hide_flipchart()
+				Global.flipchart_shown = false
 			else:
 				get_tree().root.get_node("main/GUI").show_flipchart(self)
+				Global.flipchart_shown = true
 
 func _on_interaction_zone_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
@@ -42,7 +44,9 @@ func _on_interaction_zone_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		player_close = false
 		update_texture()
-		get_tree().root.get_node("main/GUI").hide_flipchart()
+		if Global.flipchart_shown:
+			get_tree().root.get_node("main/GUI").hide_flipchart()
+			Global.flipchart_shown = false
 
 
 func turn_off():

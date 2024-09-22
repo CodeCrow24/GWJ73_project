@@ -15,9 +15,6 @@ func update_texture():
 var current_color = Color(0,0,0,1)
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("exit_menu"):
-		
-		get_parent().hide_flipchart()
 	if mouse_pressed:
 		
 		var cx = ($Canvas.texture.get_width() * $Canvas.scale.x)/2

@@ -35,12 +35,6 @@ var playerBusy = false
 
 var current_time = Time.get_time_dict_from_system()
 
-func _input(_event):
-	if Input.is_action_just_pressed("ui_accept"):
-		Global.showTransitionFade = false
-
-func _process(delta: float) -> void:
-	current_time = Time.get_time_dict_from_system()
 # INTERACTION SYSTEM VARIABLES #
 var currentText
 var currentName = "123456789***" #Longest Possible Name
@@ -73,3 +67,13 @@ var questStepMsgs = [# Every steps dialouge, NPCs excluded
 		"N/A" #NPC
 	]
 ]
+
+var funfact_shown = false
+var flipchart_shown = false
+
+func _input(_event):
+	if Input.is_action_just_pressed("ui_accept"):
+		Global.showTransitionFade = false
+
+func _process(delta: float) -> void:
+	current_time = Time.get_time_dict_from_system()

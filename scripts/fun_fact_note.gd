@@ -15,10 +15,12 @@ func _process(_delta):
 func _input(event):
 	if Input.is_action_just_pressed("interact"):
 		if player_close:
-			if get_tree().root.get_node("main/GUI/FunFactPanel").visible:
+			if Global.funfact_shown:
 				get_tree().root.get_node("main/GUI").hide_funfact()
+				Global.funfact_shown = false
 			else:
 				get_tree().root.get_node("main/GUI").show_funfact(funfact)
+				Global.funfact_shown = true
 			
 
 
