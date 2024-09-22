@@ -20,5 +20,5 @@ func hide_funfact():
 func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("exit_menu"):
-		
 		hide_funfact()
+		Global.funfact_shown = false
