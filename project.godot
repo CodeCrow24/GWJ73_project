@@ -24,6 +24,7 @@ FloorManager="*res://scripts/floor_manager.gd"
 [display]
 
 window/stretch/mode="canvas_items"
+window/vsync/vsync_mode=0
 
 [global_group]
 

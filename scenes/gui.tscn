@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dtv4wihrnp6ab"]
+[gd_scene load_steps=30 format=3 uid="uid://dtv4wihrnp6ab"]
 
 [ext_resource type="PackedScene" uid="uid://dobrbfx23cohb" path="res://scenes/control_panel.tscn" id="1_fvcd6"]
 [ext_resource type="Script" path="res://scripts/gui.gd" id="1_vmf71"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dnge83uyk55k7" path="res://assets/GUI/enter_indicator.png" id="12_fcptc"]
 [ext_resource type="PackedScene" uid="uid://cak0o2dt5bjn7" path="res://scenes/flipchart_drawing_panel.tscn" id="13_lbwhr"]
 [ext_resource type="AudioStream" uid="uid://b4gh22v57txam" path="res://assets/sounds/calm_background.mp3" id="14_2ie7b"]
+[ext_resource type="Script" path="res://scripts/fps.gd" id="15_yqi68"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_44ys7"]
 shader = ExtResource("3_5f8s5")
@@ -444,6 +445,11 @@ offset_bottom = 175.0
 
 [node name="bg_music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_2ie7b")
+
+[node name="FPS" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("15_yqi68")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="dialouge_box" method="_on_animation_player_finished"]
