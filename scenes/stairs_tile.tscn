@@ -4,39 +4,42 @@
 [ext_resource type="Texture2D" uid="uid://uxutjtbb2pve" path="res://assets/stairs.png" id="1_vfntj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_65a0i"]
-size = Vector2(64, 4)
+size = Vector2(88, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jco84"]
-size = Vector2(6, 29)
+size = Vector2(6, 68)
 
 [node name="stairs_tile" type="StaticBody2D"]
 script = ExtResource("1_lw6u5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, 8)
-scale = Vector2(1.96875, 2.0625)
+position = Vector2(1, -32)
+scale = Vector2(2, 2)
 texture = ExtResource("1_vfntj")
+region_enabled = true
+region_rect = Rect2(0, 32, 64, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -2)
+position = Vector2(-11, -2)
 shape = SubResource("RectangleShape2D_65a0i")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(29, -14.5)
+position = Vector2(30, -34)
 shape = SubResource("RectangleShape2D_jco84")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-position = Vector2(2.1848, 2.50321)
-scale = Vector2(1.04899, 1.04899)
-polygon = PackedVector2Array(-31.6351, -26.2188, -32, -3, -26, -3, -26, -7, -20, -7, -20, -11, -14, -11, -14, -15, -8, -15, -8, -19, -2, -19, -2, -23, 4, -23, 4, -27, 10, -27, 10, -31, 16.0299, -30.9853, 16.0299, -51.0047, 8.40354, -51.0047, 8.40354, -46.2382, 3.63704, -46.2382, 3.63704, -42.425, -2.08277, -42.425, -2.08277, -37.6585, -8.75588, -37.6585, -8.75588, -33.8452, -16.3823, -33.8452, -16.3823, -30.032, -24.0087, -30.032, -24.0087, -26.2188)
+polygon = PackedVector2Array(-63, 0, -63, -2, -63, -33, -57, -33, -57, -37, -49, -37, -49, -41, -41, -41, -41, -45, -33, -45, -33, -49, -25, -49, -25, -53, -17, -53, -17, -57, -8, -57, -8, -62, -8, -29, -8, -25, -16, -25, -16, -21, -23, -21, -23, -17, -31, -17, -31, -12, -39, -12, -39, -8, -47, -8, -47, -4, -55, -4, -55, 0)
 
 [node name="PlayerMovedUp" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerMovedUp"]
-polygon = PackedVector2Array(0, -42, 0, -21, 8, -21, 8, -25, 16, -25, 16, -29, 32, -29, 32, -51, 11, -51, 11, -46, 6, -46, 6, -42)
+polygon = PackedVector2Array(32, -31, 0, -31, 0, -29, -8, -29, -8, -62, -2, -62, -2, -66, 32, -66)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-63, -33, -57, -33, -57, -37, -49, -37, -49, -41, -41, -41, -41, -45, -33, -45, -33, -49, -25, -49, -25, -53, -17, -53, -17, -57, -8, -57, -8, -62, -2, -62, -2, -66, 32, -66, 32, -68, -3, -68, -3, -63, -9, -63, -9, -58, -18, -58, -18, -54, -26, -54, -26, -50, -34, -50, -34, -46, -42, -46, -42, -42, -50, -42, -50, -38, -58, -38, -58, -34, -63, -34)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
