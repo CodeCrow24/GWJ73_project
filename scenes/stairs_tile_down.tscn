@@ -1,42 +1,61 @@
-[gd_scene load_steps=6 format=3 uid="uid://bndbuhrc7sla5"]
+[gd_scene load_steps=5 format=3 uid="uid://bndbuhrc7sla5"]
 
 [ext_resource type="Script" path="res://scripts/stairs_tile_down.gd" id="1_m2s3a"]
-[ext_resource type="Texture2D" uid="uid://cfjvrdqest0dy" path="res://assets/stairs_up_back.png" id="2_mj2vg"]
-[ext_resource type="Texture2D" uid="uid://dq6301caopken" path="res://assets/stairs_up_front.png" id="3_3trj4"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_65a0i"]
-size = Vector2(64, 4)
+[ext_resource type="Texture2D" uid="uid://uxutjtbb2pve" path="res://assets/stairs.png" id="2_x2ml3"]
+[ext_resource type="Texture2D" uid="uid://d3oq0pwjcx27u" path="res://assets/tilemap.png" id="3_3vqo4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whiie"]
-size = Vector2(11, 44)
+size = Vector2(36, 4)
 
 [node name="stairs_tile" type="StaticBody2D"]
 script = ExtResource("1_m2s3a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -32)
-texture = ExtResource("2_mj2vg")
+scale = Vector2(2, 2)
+texture = ExtResource("2_x2ml3")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 16)
 
 [node name="Sprite2DFront" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -32)
-texture = ExtResource("3_3trj4")
+position = Vector2(16, 32)
+scale = Vector2(1.001, 1.001)
+texture = ExtResource("3_3vqo4")
+region_enabled = true
+region_rect = Rect2(288, 0, 32, 32)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -2)
-shape = SubResource("RectangleShape2D_65a0i")
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2DFront"]
+texture_filter = 1
+position = Vector2(-32, 0)
+scale = Vector2(1.001, 1.001)
+texture = ExtResource("3_3vqo4")
+region_enabled = true
+region_rect = Rect2(288, 0, 32, 32)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Sprite2DFront/Sprite2D2"]
+texture_filter = 1
+position = Vector2(-32, 0)
+scale = Vector2(1.001, 1.001)
+texture = ExtResource("3_3vqo4")
+region_enabled = true
+region_rect = Rect2(288, 0, 32, 32)
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-polygon = PackedVector2Array(-32, -16, -32, -3, -26, -3, -26, -7, -20, -7, -20, -11, -14, -11, -14, -15, -8, -15, -8, -19, -2, -19, -2, -23, 4, -23, 4, -27, 10, -27, 10, -31, 10, -40, 10, -40, 4, -40, 4, -36, -2, -36, -2, -32, -8, -32, -8, -28, -14, -28, -14, -24, -20, -24, -20, -20, -26, -20, -26, -16)
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(0, -8, -1, -8, -1, -6, -5, -6, -5, -4, -9, -4, -9, -2, -13, -2, -13, 0, -17, 0, -17, 2, -21, 2, -21, 4, -32, 4, -32, 8, 0, 8)
 
 [node name="PlayerMovedUp" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerMovedUp"]
-position = Vector2(-21.5, -29)
+position = Vector2(-46, 14)
 shape = SubResource("RectangleShape2D_whiie")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(2, 2)
+polygon = PackedVector2Array(0, -8, 0, -9, -33, -9, -33, 9, 0, 9, 0, 8, -32, 8, -32, -8, -27.6832, -8)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
