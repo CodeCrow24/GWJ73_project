@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bl4bm86r3ds2u" path="res://scenes/elevator_tile.tscn" id="3_kprqc"]
 [ext_resource type="PackedScene" uid="uid://cvbx4tpkdo1vl" path="res://scenes/crate.tscn" id="6_lspsl"]
 [ext_resource type="PackedScene" uid="uid://bs4wrvgwmco1k" path="res://scenes/flipchart.tscn" id="7_3t5gn"]
-[ext_resource type="PackedScene" path="res://scenes/npc.tscn" id="7_6bafq"]
+[ext_resource type="PackedScene" uid="uid://dqvji6iihmuhv" path="res://scenes/npc.tscn" id="7_6bafq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0jnou"]
 texture = ExtResource("2_80thm")
@@ -75,7 +75,7 @@ npcName = "Tom"
 position = Vector2(-183, -269)
 interactableID = 1
 
-[node name="flipchart" parent="." instance=ExtResource("7_3t5gn")]
+[node name="flipchart" parent="interactables" instance=ExtResource("7_3t5gn")]
 position = Vector2(183, 84)
 
 [node name="Puddles" type="Node2D" parent="."]
