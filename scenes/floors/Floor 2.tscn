@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bl4bm86r3ds2u" path="res://scenes/elevator_tile.tscn" id="3_kprqc"]
 [ext_resource type="PackedScene" uid="uid://cvbx4tpkdo1vl" path="res://scenes/crate.tscn" id="6_lspsl"]
 [ext_resource type="PackedScene" uid="uid://bs4wrvgwmco1k" path="res://scenes/flipchart.tscn" id="7_3t5gn"]
-[ext_resource type="PackedScene" path="res://scenes/npc.tscn" id="7_6bafq"]
+[ext_resource type="PackedScene" uid="uid://dqvji6iihmuhv" path="res://scenes/npc.tscn" id="7_6bafq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0jnou"]
 texture = ExtResource("2_80thm")
@@ -68,7 +68,7 @@ position = Vector2(-125, 60)
 position = Vector2(96, -152)
 questIndex = 1
 interactableID = 1
-defaultMsg = "I have no requests. for you at the moment."
+defaultMsg = "I have no requests for you at the moment.."
 npcName = "Tom"
 
 [node name="Crate" parent="interactables" instance=ExtResource("6_lspsl")]

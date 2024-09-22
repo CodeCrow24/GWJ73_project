@@ -31,6 +31,7 @@ var questStarted = [
 var currentPlayerQuestStep
 var closestNpcQuestIndex
 var closestInteractableID = 0
+var playerBusy = false
 
 var current_time = Time.get_time_dict_from_system()
 
@@ -54,4 +55,21 @@ var questEndingMsgs = [
 	"Thank you, that was exactly what I needed.",
 	"Thank you very much, that saved me a ton of time!",
 	"Thanks, you're a big help."
+]
+var questStepMsgs = [# Every steps dialouge, NPCs excluded
+	[#Quest 01
+		"I got his stuff, I should probably give it to him now.",
+		"N/A" #NPC
+	],
+	[#Quest 02
+		"I got the things I'm supposed to give to his friend now. I should bring them to his friend on the first floor.",
+		"N/a", # NPC
+		"Ok, now lets just bring this to him.",
+		"N/A"
+	],
+	[#Quest 03
+		"Lets get this to his friend now.",
+		"N/A",#NPC
+		"N/A" #NPC
+	]
 ]

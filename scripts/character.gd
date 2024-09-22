@@ -41,6 +41,8 @@ func exit_stairs():
 
 func _physics_process(delta):
 	
+	Global.playerBusy = isQuestActive
+	
 	speaking = Global.showDiaBox
 	
 	var direction = Input.get_vector("left", "right", "up", "down")
@@ -205,5 +207,9 @@ func handleInteraction(type: String):
 				print_rich("[color=red][b][DEBUG]: QUEST ALREADY FINISHED[/b][/color]")
 		elif isQuestActive and currentStep() == "goToNpc" and Global.closestInteractableID == currentStepID():
 			completeStep()
+	if type != "npc":
+		Global.currentName = "me"
+		Global.currentText = Global.questStepMsgs[activeQuestIndex][currentStepIndex - 1]
+		Global.showDiaBox = true
 	
 		

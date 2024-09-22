@@ -11,7 +11,8 @@ script = ExtResource("1_lw6u5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(0, -32)
+position = Vector2(0.499997, -33)
+scale = Vector2(1.96875, 2.0625)
 texture = ExtResource("1_vfntj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -21,12 +22,14 @@ shape = SubResource("RectangleShape2D_65a0i")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-polygon = PackedVector2Array(-32, -16, -32, -3, -26, -3, -26, -7, -20, -7, -20, -11, -14, -11, -14, -15, -8, -15, -8, -19, -2, -19, -2, -23, 4, -23, 4, -27, 10, -27, 10, -31, 10, -40, 10, -40, 4, -40, 4, -36, -2, -36, -2, -32, -8, -32, -8, -28, -14, -28, -14, -24, -20, -24, -20, -20, -26, -20, -26, -16)
+position = Vector2(2.1848, 2.50321)
+scale = Vector2(1.04899, 1.04899)
+polygon = PackedVector2Array(-31.6351, -26.2188, -32, -3, -26, -3, -26, -7, -20, -7, -20, -11, -14, -11, -14, -15, -8, -15, -8, -19, -2, -19, -2, -23, 4, -23, 4, -27, 10, -27, 10, -31, 16.0299, -30.9853, 16.0299, -51.0047, 8.40354, -51.0047, 8.40354, -46.2382, 3.63704, -46.2382, 3.63704, -42.425, -2.08277, -42.425, -2.08277, -37.6585, -8.75588, -37.6585, -8.75588, -33.8452, -16.3823, -33.8452, -16.3823, -30.032, -24.0087, -30.032, -24.0087, -26.2188)
 
 [node name="PlayerMovedUp" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerMovedUp"]
-polygon = PackedVector2Array(-2, -36, -2, -23, 4, -23, 4, -27, 10, -27, 10, -31, 32, -31, 32, -44, 10, -44, 10, -40, 4, -40, 4, -36)
+polygon = PackedVector2Array(0, -42, 0, -21, 8, -21, 8, -25, 16, -25, 16, -29, 32, -29, 32, -51, 11, -51, 11, -46, 6, -46, 6, -42)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
