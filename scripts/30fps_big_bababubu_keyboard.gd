@@ -1,6 +1,6 @@
 extends Node2D
 
-
+#30 fps (ik now its 15 but no will notice)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$AnimationPlayer.play("rgb")
