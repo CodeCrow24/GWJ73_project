@@ -33,7 +33,9 @@ func hide_level_select():
 	#$Timer.start()
 
 func stairs_transition_in(DestinationFloor, stairs_type, stairs_id):
-	Global.showTransitionFade = true
+	if !Global.shaderActive:
+		Global.showTransitionFade = true
+		Global.shaderActive = true
 	stairDestData = [DestinationFloor, stairs_type, stairs_id]
 	$transition_shader.set_radial()
 	$AnimationPlayer.play("StairsFadeIn")
@@ -47,7 +49,9 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "hide_level_select":
 		get_tree().root.get_node("main").get_node("player/Camera2D").position_smoothing_enabled = true
 	elif anim_name == "StairsFadeIn":
-		Global.showTransitionFade = false
+		if Global.shaderActive:
+			Global.showTransitionFade = false
+			Global.shaderActive = false
 		FloorManager.go_to_floor(stairDestData[0],stairDestData[1],stairDestData[2])
 		get_tree().root.get_node("main").get_node("player/Camera2D").position_smoothing_enabled = false
 		$AnimationPlayer.play("StairsFadeIn")

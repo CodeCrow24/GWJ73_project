@@ -71,6 +71,8 @@ var questStepMsgs = [# Every steps dialouge, NPCs excluded
 var funfact_shown = false
 var flipchart_shown = false
 
+var shaderActive = false
+
 func _input(_event):
 	if Input.is_action_just_pressed("ui_accept"):
 		Global.showTransitionFade = false
