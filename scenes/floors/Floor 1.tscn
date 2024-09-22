@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=4 uid="uid://bdjmmvouoqwj0"]
+[gd_scene load_steps=12 format=4 uid="uid://bdjmmvouoqwj0"]
 
 [ext_resource type="Script" path="res://scripts/floors/floor_1.gd" id="1_sakti"]
 [ext_resource type="Texture2D" uid="uid://d3oq0pwjcx27u" path="res://assets/tilemap.png" id="3_mh2lh"]
 [ext_resource type="PackedScene" uid="uid://bl4bm86r3ds2u" path="res://scenes/elevator_tile.tscn" id="4_at65u"]
+[ext_resource type="PackedScene" uid="uid://bat3qn2yib33q" path="res://scenes/fun_fact_note.tscn" id="5_2g4cd"]
 [ext_resource type="PackedScene" uid="uid://bndbuhrc7sla5" path="res://scenes/stairs_tile_down.tscn" id="5_i1khl"]
 [ext_resource type="PackedScene" uid="uid://cvbx4tpkdo1vl" path="res://scenes/crate.tscn" id="5_ku20i"]
 [ext_resource type="PackedScene" path="res://scenes/puddle.tscn" id="5_sqrr7"]
@@ -59,7 +60,7 @@ position = Vector2(-125, 60)
 [node name="Stairs" type="Node2D" parent="."]
 
 [node name="stairs_tile" parent="Stairs" instance=ExtResource("5_i1khl")]
-position = Vector2(165, 158)
+position = Vector2(163, 140)
 DestinationFloor = "Floor 0"
 
 [node name="stairs_tile2" parent="Stairs" instance=ExtResource("5_i1khl")]
@@ -86,3 +87,7 @@ npcName = "Thompson"
 
 [node name="flipchart" parent="interactables" instance=ExtResource("7_qyeex")]
 position = Vector2(28, -239)
+
+[node name="FunFactNote" parent="interactables" instance=ExtResource("5_2g4cd")]
+position = Vector2(347, -200)
+funfact = "...that the Venus is the only planet that rotates clockwise?"

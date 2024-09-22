@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://cmj1p4sgv83qu"]
+[gd_scene load_steps=11 format=4 uid="uid://cmj1p4sgv83qu"]
 
 [ext_resource type="Script" path="res://scripts/floors/floor_2.gd" id="1_1vrbt"]
 [ext_resource type="Texture2D" uid="uid://diuprq6vpml37" path="res://assets/level_bg.png" id="1_3lfsy"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cvbx4tpkdo1vl" path="res://scenes/crate.tscn" id="6_lspsl"]
 [ext_resource type="PackedScene" uid="uid://bs4wrvgwmco1k" path="res://scenes/flipchart.tscn" id="7_3t5gn"]
 [ext_resource type="PackedScene" uid="uid://dqvji6iihmuhv" path="res://scenes/npc.tscn" id="7_6bafq"]
+[ext_resource type="PackedScene" uid="uid://bat3qn2yib33q" path="res://scenes/fun_fact_note.tscn" id="8_whkhx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0jnou"]
 texture = ExtResource("2_80thm")
@@ -77,5 +78,13 @@ interactableID = 1
 
 [node name="flipchart" parent="interactables" instance=ExtResource("7_3t5gn")]
 position = Vector2(183, 84)
+
+[node name="FunFactNote" parent="interactables" instance=ExtResource("8_whkhx")]
+position = Vector2(-268, 112)
+funfact = "...that a moment is actually a medieval unit of time that is equal to 1.5 minutes?"
+
+[node name="FunFactNote2" parent="interactables" instance=ExtResource("8_whkhx")]
+position = Vector2(255, -127)
+funfact = "...that the mars is inhabited, but with 100% of robots, technically?"
 
 [node name="Puddles" type="Node2D" parent="."]
