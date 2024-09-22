@@ -75,7 +75,7 @@ npcName = "Tom"
 position = Vector2(-183, -269)
 interactableID = 1
 
-[node name="flipchart" parent="." instance=ExtResource("7_3t5gn")]
+[node name="flipchart" parent="interactables" instance=ExtResource("7_3t5gn")]
 position = Vector2(183, 84)
 
 [node name="Puddles" type="Node2D" parent="."]

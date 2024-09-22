@@ -1,0 +1,470 @@
+[gd_scene load_steps=22 format=3 uid="uid://r1wrl07rwvdu"]
+
+[ext_resource type="Texture2D" uid="uid://d20o8p4rdgq7c" path="res://assets/GUI/title_screen.png" id="1_0mft2"]
+[ext_resource type="Script" path="res://scenes/screens/title_screen.gd" id="1_p4dpe"]
+[ext_resource type="Shader" path="res://shaders/intro.gdshader" id="3_5omi5"]
+[ext_resource type="FontFile" uid="uid://ongt53bhj2f0" path="res://assets/GUI/fonts/pixelFont.ttf" id="3_lssvc"]
+[ext_resource type="Texture2D" uid="uid://du6s8dqhkbm5l" path="res://assets/GUI/curtain horizontal.png" id="4_icf0h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bv6op"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yn760"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_04id6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h8irb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2gine"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3nfgw"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pjvuo"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bh2e"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0uj6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6p6dr"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_238kv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Animation" id="Animation_g27nr"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Middle:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Front:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Middle:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Front:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n87t6"]
+shader = ExtResource("3_5omi5")
+shader_parameter/cutoff = 1.0
+shader_parameter/smooth_size = 0.391
+shader_parameter/scale = 2.0
+shader_parameter/use_adjust_aspect_ratio = null
+shader_parameter/mask = ExtResource("4_icf0h")
+
+[sub_resource type="Animation" id="Animation_vkfur"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Middle:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Front:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Middle:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Front:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ColorRect:material")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_n87t6")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ColorRect:material:shader_parameter/cutoff")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_3mpl3"]
+resource_name = "intro"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Middle:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.166667, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 13.5), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Front:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.166667, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -6.445), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Middle:scale")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.166667, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.645, 0.645), Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Front:scale")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.166667, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.845, 0.845), Vector2(1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ColorRect:material")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.166667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_n87t6")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ColorRect:material:shader_parameter/cutoff")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.166667, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_735tt"]
+_data = {
+"RESET": SubResource("Animation_vkfur"),
+"default": SubResource("Animation_g27nr"),
+"intro": SubResource("Animation_3mpl3")
+}
+
+[node name="TitleScreen" type="Node2D"]
+script = ExtResource("1_p4dpe")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_0mft2")
+vframes = 3
+
+[node name="Middle" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_0mft2")
+vframes = 3
+frame = 1
+
+[node name="Front" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_0mft2")
+vframes = 3
+frame = 2
+
+[node name="Start" type="Button" parent="Front"]
+offset_left = -43.0
+offset_top = -33.0
+offset_right = 43.0
+offset_bottom = -1.0
+theme_override_colors/font_hover_color = Color(0.933333, 0.505882, 0.501961, 1)
+theme_override_colors/font_pressed_color = Color(0.87451, 0.556863, 0.298039, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_lssvc")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxFlat_bv6op")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_bv6op")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_bv6op")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_bv6op")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_bv6op")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_bv6op")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bv6op")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_bv6op")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bv6op")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_bv6op")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bv6op")
+text = "Start"
+flat = true
+
+[node name="Options" type="Button" parent="Front"]
+offset_left = -58.0
+offset_right = 58.0
+offset_bottom = 32.0
+theme_override_colors/font_hover_color = Color(0.933333, 0.505882, 0.501961, 1)
+theme_override_colors/font_pressed_color = Color(0.87451, 0.556863, 0.298039, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_lssvc")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxFlat_bv6op")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_bv6op")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_bv6op")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_bv6op")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_bv6op")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_bv6op")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bv6op")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_bv6op")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bv6op")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_bv6op")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bv6op")
+text = "Options"
+flat = true
+
+[node name="Quit" type="Button" parent="Front"]
+offset_left = -43.0
+offset_top = 33.2722
+offset_right = 43.0
+offset_bottom = 65.2722
+theme_override_colors/font_hover_color = Color(0.933333, 0.505882, 0.501961, 1)
+theme_override_colors/font_pressed_color = Color(0.87451, 0.556863, 0.298039, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("3_lssvc")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxFlat_yn760")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxFlat_04id6")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_h8irb")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_2gine")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_3nfgw")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_pjvuo")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bv6op")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_1bh2e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_p0uj6")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_6p6dr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_238kv")
+text = "Quit"
+flat = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_735tt")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_n87t6")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.0
+offset_top = -125.0
+offset_right = 197.0
+offset_bottom = 113.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -718.0
+offset_top = -2560.0
+offset_right = 757.0
+offset_bottom = -533.0
+theme_override_font_sizes/font_size = 146
+text = "
+
+
+
+
+
+
+
+
+We are so cooked 💀"
+
+[connection signal="pressed" from="Front/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Front/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Front/Quit" to="." method="_on_quit_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
