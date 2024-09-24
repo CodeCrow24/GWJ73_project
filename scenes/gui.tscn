@@ -18,7 +18,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_44ys7"]
 shader = ExtResource("3_5f8s5")
-shader_parameter/cutoff = 0.35
+shader_parameter/cutoff = 0.026
 shader_parameter/smooth_size = 0.499
 shader_parameter/scale = 1.0
 shader_parameter/use_adjust_aspect_ratio = true
@@ -160,6 +160,33 @@ tracks/1/keys = {
 "values": [Vector2(451, 175), Vector2(451, 700)]
 }
 
+[sub_resource type="Animation" id="Animation_p5wla"]
+resource_name = "hide_funfact"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FunFactPanel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FunFactPanel:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(425, 266), Vector2(426, 671)]
+}
+
 [sub_resource type="Animation" id="Animation_kyhge"]
 resource_name = "hide_level_select"
 tracks/0/type = "value"
@@ -230,33 +257,6 @@ tracks/1/keys = {
 "values": [Vector2(451, 700), Vector2(451, 175)]
 }
 
-[sub_resource type="Animation" id="Animation_agfrq"]
-resource_name = "show_level_select"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("LevelSelect:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(426, 700), Vector2(426, 139)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("LevelSelect:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, true]
-}
-
 [sub_resource type="Animation" id="Animation_i2qvi"]
 resource_name = "show_funfact"
 tracks/0/type = "value"
@@ -284,31 +284,31 @@ tracks/1/keys = {
 "values": [Vector2(426, 671), Vector2(425, 266)]
 }
 
-[sub_resource type="Animation" id="Animation_p5wla"]
-resource_name = "hide_funfact"
+[sub_resource type="Animation" id="Animation_agfrq"]
+resource_name = "show_level_select"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FunFactPanel:visible")
-tracks/0/interp = 1
+tracks/0/path = NodePath("LevelSelect:position")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(426, 700), Vector2(426, 139)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("FunFactPanel:position")
-tracks/1/interp = 2
+tracks/1/path = NodePath("LevelSelect:visible")
+tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(425, 266), Vector2(426, 671)]
+"update": 1,
+"values": [true, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u4pwe"]

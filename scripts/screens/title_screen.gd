@@ -4,8 +4,7 @@ var main_scene = preload("res://scenes/main.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$AnimationPlayer.play("intro")
-	$ColorRect.visible = true
+	$intro_delay.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -41,3 +40,8 @@ func _on_options_pressed() -> void:
 func _on_quit_pressed() -> void:
 	print("Quit")
 	get_tree().quit()
+
+
+func _on_intro_delay_timeout():
+	$"black rect/blackRect".visible = false
+	$AnimationPlayer.play("intro")

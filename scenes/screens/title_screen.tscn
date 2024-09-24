@@ -431,7 +431,6 @@ libraries = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 material = SubResource("ShaderMaterial_n87t6")
 anchors_preset = 8
 anchor_left = 0.5
@@ -464,7 +463,30 @@ text = "
 
 We are so cooked 💀"
 
+[node name="intro_delay" type="Timer" parent="."]
+one_shot = true
+
+[node name="black rect" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="blackRect" type="ColorRect" parent="black rect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -234.0
+offset_top = -151.0
+offset_right = 202.0
+offset_bottom = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [connection signal="pressed" from="Front/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Front/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Front/Quit" to="." method="_on_quit_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="intro_delay" to="." method="_on_intro_delay_timeout"]
