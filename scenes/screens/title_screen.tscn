@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://r1wrl07rwvdu"]
+[gd_scene load_steps=23 format=3 uid="uid://r1wrl07rwvdu"]
 
 [ext_resource type="Texture2D" uid="uid://d20o8p4rdgq7c" path="res://assets/GUI/title_screen.png" id="1_0mft2"]
 [ext_resource type="Script" path="res://scripts/screens/title_screen.gd" id="1_p4dpe"]
@@ -38,6 +38,10 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_238kv"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Theme" id="Theme_ahtj3"]
+default_font = ExtResource("3_lssvc")
+default_font_size = 30
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n87t6"]
 shader = ExtResource("3_5omi5")
@@ -424,6 +428,23 @@ flat = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
+
+[node name="Label2" type="Label" parent="."]
+texture_filter = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = -177.0
+offset_top = -91.0
+offset_right = 174.0
+offset_bottom = -67.0
+grow_horizontal = 2
+theme = SubResource("Theme_ahtj3")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 5
+text = "WE NEED TO REWORK STAIRS"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
