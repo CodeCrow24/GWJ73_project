@@ -16,7 +16,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	enterIndicator()
 	checkGlobalShowDialouge()
 	if !showText:
@@ -50,8 +50,8 @@ func show_text(Newtext):
 	showDiaBox()
 	showingText = true
 	
-func _input(event):
-	if Input.is_action_just_pressed("ui_accept") and showTextDone:
+func _input(_event):
+	if Input.is_action_just_pressed("dialouge_accept") and showTextDone:
 		showText = false
 		showTextDone = false
 		Global.showDiaBox = false

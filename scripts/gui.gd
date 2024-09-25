@@ -59,6 +59,10 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		get_tree().root.get_node("main").get_node("player/Camera2D").position_smoothing_enabled = true
 	elif anim_name == "hide_flipchart":
 		$FlipchartDrawingPanel.hide_flipchart()
+	if anim_name == "hide_flipchart" or anim_name == "show_flipchart":
+		Global.flipcharttrans = false
+	if anim_name == "hide_funfact" or anim_name == "show_funfact":
+		Global.funfacttrans = false
 
 func show_funfact(funfact):
 	$FunFactPanel.show_funfact(funfact)

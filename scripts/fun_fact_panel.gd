@@ -17,7 +17,7 @@ func hide_funfact():
 	pass
 	#visible = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	
 	if Input.is_action_just_pressed("exit_menu"):
 		hide_funfact()
