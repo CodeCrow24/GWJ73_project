@@ -2,6 +2,9 @@ extends Node
 #	Put global variables in here, you can access this from any scene or node
 #	in other scripts type global.variableName to access your variable
 
+var funfacttrans = false
+var flipcharttrans = false
+
 # SHADER SYSTEM VARIABLES #
 var Transition_Shader_Progress = 1 
 var showTransitionFade = false
@@ -77,5 +80,5 @@ func _input(_event):
 	if Input.is_action_just_pressed("ui_accept"):
 		Global.showTransitionFade = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	current_time = Time.get_time_dict_from_system()

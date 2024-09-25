@@ -75,13 +75,15 @@ func _physics_process(delta):
 		if direction != Vector2.ZERO:
 			#direction += input_vector * ACCELERATION
 			#direction = direction.clamped(MAX_SPEED)
+			direction = direction.normalized()
 			velocity = direction * SPEED
-			direction.normalized()
+			
 			
 		elif len(ice_areas) > 0:
 			
 			velocity = lerp(velocity, Vector2.ZERO, 0.03)
 		else:
+			direction = direction.normalized()
 			velocity = direction * SPEED
 		
 		if !speaking:
@@ -94,22 +96,26 @@ func _physics_process(delta):
 	play_animation(direction)
 	
 func play_animation(dir):
-	if player_state== "idle" or speaking:
+	if player_state == "idle" or speaking:
 		$anim.play(last_dir)
 	elif player_state == "walk" and !speaking:
-		if dir.y == -1 and dir.x == 0:
+		if dir.y < -0.5 and abs(dir.x) < 0.5:
 			$anim.play("n-walk")
 			last_dir = "n-idle"
-		elif dir.y == 1 and dir.x == 0:
+		elif dir.y > 0.5 and abs(dir.x) < 0.5:
 			$anim.play("s-walk")
 			last_dir = "s-idle"
-		elif dir.x == -1 and dir.y == 0:
+		elif dir.x < -0.5 and abs(dir.y) < 0.5:
 			$anim.play("w-walk")
 			last_dir = "w-idle"
-		elif dir.x == 1 and dir.y == 0:
+		elif dir.x > 0.5 and abs(dir.y) < 0.5:
 			$anim.play("e-walk")
 			last_dir = "e-idle"
-		
+		elif dir.y == -0.5 and abs(dir.x) == 0.5:
+			$anim.play("n-walk")
+		elif dir.y == 0.5 and abs(dir.x) == 0.5:
+			$anim.play("s-walk")
+ 		
 
 func _input(_event):
 	
@@ -207,7 +213,7 @@ func handleInteraction(type: String):
 				print_rich("[color=red][b][DEBUG]: QUEST ALREADY FINISHED[/b][/color]")
 		elif isQuestActive and currentStep() == "goToNpc" and Global.closestInteractableID == currentStepID():
 			completeStep()
-	if type != "npc":
+	if type != "npc" and isQuestActive:
 		Global.currentName = "me"
 		Global.currentText = Global.questStepMsgs[activeQuestIndex][currentStepIndex - 1]
 		Global.showDiaBox = true

@@ -14,15 +14,17 @@ func turn_off():
 func turn_on():
 	$interaction_zone.monitoring =true
 
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed("interact"):
 		if player_close:
-			if Global.funfact_shown:
+			if Global.funfact_shown and !Global.funfacttrans:
 				get_tree().root.get_node("main/GUI").hide_funfact()
 				Global.funfact_shown = false
-			else:
+				Global.funfacttrans = true
+			elif !Global.funfact_shown and !Global.funfacttrans:
 				get_tree().root.get_node("main/GUI").show_funfact(funfact)
 				Global.funfact_shown = true
+				Global.funfacttrans = true
 			
 
 
