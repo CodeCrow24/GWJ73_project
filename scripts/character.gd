@@ -57,15 +57,16 @@ func _physics_process(delta):
 		
 	SPEED = Max_Speed
 	
-	if current_stairs != null:
-		direction.y = 0
-		if current_stairs.direction == current_stairs.directions.Left:
-			if direction.x > 0:
-				direction.y = -current_stairs.y_add
-			elif direction.x < 0:
-				direction.y = current_stairs.y_add
-		velocity = direction * SPEED
-		position += velocity * delta
+	if current_stairs != current_stairs:#null:
+		#direction.y = 0
+		#if current_stairs.direction == current_stairs.directions.Left:
+		#	if direction.x > 0:
+		#		direction.y = -current_stairs.y_add
+		#	elif direction.x < 0:
+		#		direction.y = current_stairs.y_add
+		#velocity = direction * SPEED
+		#position += velocity * delta
+		pass
 	
 	else:
 		if len(ice_areas) > 0:

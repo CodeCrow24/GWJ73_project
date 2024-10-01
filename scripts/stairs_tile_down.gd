@@ -3,17 +3,15 @@ extends StaticBody2D
 
 
 func turn_on():
-	$CollisionPolygon2D.disabled = false
+	$CollisionPolygon2D.set_deferred("disabled", false)
 	
-	$Area2D.monitoring = true
-	$PlayerMovedUp.monitoring = true
+	$Area2D.set_deferred("monitoring", true)
 	
 
 func turn_off():
-	$CollisionPolygon2D.disabled = true
+	$CollisionPolygon2D.set_deferred("disabled", true)
 	
 	$Area2D.monitoring = false
-	$PlayerMovedUp.monitoring = false
 
 
 
@@ -38,17 +36,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
 		$Sprite2DFront.z_index=9
 		stairs_entered.emit(self)
+		get_tree().root.get_node("main").change_to_floor(DestinationFloor, "StairsDown", stairs_id)
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body is Player:
 		$Sprite2DFront.z_index=0
 		stairs_exited.emit()
-
-
-
-
-func _on_player_moved_up_body_entered(body: Node2D) -> void:
-	if body is Player and body.current_stairs == self and DestinationFloor != null:
-		get_tree().root.get_node("main").get_node("GUI").stairs_transition_in(DestinationFloor, "StairsDown", stairs_id)
-		

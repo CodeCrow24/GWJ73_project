@@ -29,9 +29,9 @@ func _input(_event):
 
 
 func turn_off():
-	$interaction_zone.monitoring = false
-	$crate_collisions/crate_hitbox.disabled = true
+	$interaction_zone.set_deferred("monitoring", false)
+	$crate_collisions/crate_hitbox.set_deferred("disabled", true)
 	
 func turn_on():
-	$interaction_zone.monitoring = true
-	$crate_collisions/crate_hitbox.disabled = false
+	$interaction_zone.set_deferred("monitoring", true)
+	$crate_collisions/crate_hitbox.set_deferred("disabled", false)

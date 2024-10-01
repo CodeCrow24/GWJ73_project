@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxwjnoi46axp3"]
+[gd_scene load_steps=6 format=3 uid="uid://bxwjnoi46axp3"]
 
 [ext_resource type="Script" path="res://scripts/stairs_tile.gd" id="1_lw6u5"]
 [ext_resource type="Texture2D" uid="uid://uxutjtbb2pve" path="res://assets/stairs.png" id="1_vfntj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_65a0i"]
-size = Vector2(88, 4)
+size = Vector2(96, 2)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jco84"]
-size = Vector2(6, 68)
+size = Vector2(6, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1vm3t"]
+size = Vector2(8, 28)
 
 [node name="stairs_tile" type="StaticBody2D"]
 script = ExtResource("1_lw6u5")
@@ -21,26 +24,29 @@ region_enabled = true
 region_rect = Rect2(0, 32, 64, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-11, -2)
+z_index = 99
+z_as_relative = false
+position = Vector2(-15, -1)
 shape = SubResource("RectangleShape2D_65a0i")
+debug_color = Color(0.997257, 0, 0.169914, 0.42)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(30, -34)
+z_index = 99
+z_as_relative = false
+position = Vector2(30, -32)
 shape = SubResource("RectangleShape2D_jco84")
+debug_color = Color(0.997151, 0, 0.172183, 0.42)
 
 [node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-polygon = PackedVector2Array(-63, 0, -63, -2, -63, -33, -57, -33, -57, -37, -49, -37, -49, -41, -41, -41, -41, -45, -33, -45, -33, -49, -25, -49, -25, -53, -17, -53, -17, -57, -8, -57, -8, -62, -8, -29, -8, -25, -16, -25, -16, -21, -23, -21, -23, -17, -31, -17, -31, -12, -39, -12, -39, -8, -47, -8, -47, -4, -55, -4, -55, 0)
-
-[node name="PlayerMovedUp" type="Area2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerMovedUp"]
-polygon = PackedVector2Array(32, -31, 0, -31, 0, -29, -8, -29, -8, -62, -2, -62, -2, -66, 32, -66)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-59, -16)
+shape = SubResource("RectangleShape2D_1vm3t")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-63, -33, -57, -33, -57, -37, -49, -37, -49, -41, -41, -41, -41, -45, -33, -45, -33, -49, -25, -49, -25, -53, -17, -53, -17, -57, -8, -57, -8, -62, -2, -62, -2, -66, 32, -66, 32, -68, -3, -68, -3, -63, -9, -63, -9, -58, -18, -58, -18, -54, -26, -54, -26, -50, -34, -50, -34, -46, -42, -46, -42, -42, -50, -42, -50, -38, -58, -38, -58, -34, -63, -34)
+z_index = 99
+z_as_relative = false
+polygon = PackedVector2Array(-63, -30, -55, -30, -55, -34, -47, -34, -47, -38, -39, -38, -39, -42, -31, -42, -31, -46, -23, -46, -23, -50, -15, -50, -15, -54, -5, -54, -5, -58, 1, -58, 1, -62, 33, -62, 33, -64, -1, -64, -1, -60, -7, -60, -7, -56, -17, -56, -17, -52, -25, -52, -25, -48, -33, -48, -33, -44, -41, -44, -41, -40, -49, -40, -49, -36, -57, -36, -57, -32, -63, -32)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="PlayerMovedUp" to="." method="_on_player_moved_up_body_entered"]

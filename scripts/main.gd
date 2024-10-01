@@ -54,12 +54,13 @@ func change_to_floor(floor_name, spawn_type, spawn_id):
 						$player.position = n.position
 						print($player.position)
 						$player.position.y -= 10
+						$player.position.x += 15
 				if spawn_type == "StairsDown":
 					if n.stairs_id == spawn_id:
 						print(n.name)
 						$player.position = n.position
-						$player.position.x -= 20
-						$player.position.y -= 55
+						$player.position.x -= 75
+						$player.position.y -= 25
 		else:
 			i.floor_exited()
 	#print(floor)

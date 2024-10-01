@@ -52,9 +52,9 @@ func _on_interaction_zone_body_exited(body: Node2D) -> void:
 
 
 func turn_off():
-	$interaction_zone.monitoring = false
-	$flipchart_collisions/flipchart_hitbox.disabled = true
+	$interaction_zone.set_deferred("monitoring", false)
+	$flipchart_collisions/flipchart_hitbox.set_deferred("disabled", true)
 	
 func turn_on():
-	$interaction_zone.monitoring = true
-	$flipchart_collisions/flipchart_hitbox.disabled = false
+	$interaction_zone.set_deferred("monitoring", true)
+	$flipchart_collisions/flipchart_hitbox.set_deferred("disabled", false)

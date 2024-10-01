@@ -10,9 +10,9 @@ func _process(_delta):
 		$animation.play("player_not_close")
 
 func turn_off():
-	$interaction_zone.monitoring =false
+	$interaction_zone.set_deferred("monitoring", false)
 func turn_on():
-	$interaction_zone.monitoring =true
+	$interaction_zone.set_deferred("monitoring", true)
 
 func _input(_event):
 	if Input.is_action_just_pressed("interact"):

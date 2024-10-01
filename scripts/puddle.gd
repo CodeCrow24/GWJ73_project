@@ -2,14 +2,14 @@ extends Node2D
 
 
 func turn_on():
-	$PlayerCheck.monitoring = true
-	$CautionWetSign/CollisionShape2D.disabled = false
-	$CautionWetSign2/CollisionShape2D.disabled = false
+	$PlayerCheck.set_deferred("monitoring", true)
+	$CautionWetSign/CollisionShape2D.set_deferred("disabled", false)
+	$CautionWetSign2/CollisionShape2D.set_deferred("disabled", false)
 
 func turn_off():
-	$PlayerCheck.monitoring = false
-	$CautionWetSign/CollisionShape2D.disabled = true
-	$CautionWetSign2/CollisionShape2D.disabled = true
+	$PlayerCheck.set_deferred("monitoring",false)
+	$CautionWetSign/CollisionShape2D.set_deferred("disabled", true)
+	$CautionWetSign2/CollisionShape2D.set_deferred("disabled", true)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

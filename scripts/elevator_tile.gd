@@ -5,26 +5,26 @@ var turned_off: bool = false
 
 func turn_on():
 	turned_off = false
-	$CollisionShape2DL.disabled = false
-	$CollisionShape2DR.disabled = false
-	$CollisionShape2DDoorL.disabled = false
-	$CollisionShape2DDoorR.disabled = false
-	$CollisionShape2DBack.disabled = false
-	$CollisionShape2DFront.disabled = true
-	$PlayerNearbyDetection.monitoring = true
-	$PlayerInElevatorDetection.monitoring = true
+	$CollisionShape2DL.set_deferred("disabled", false)
+	$CollisionShape2DR.set_deferred("disabled", false)
+	$CollisionShape2DDoorL.set_deferred("disabled", false)
+	$CollisionShape2DDoorR.set_deferred("disabled", false)
+	$CollisionShape2DBack.set_deferred("disabled", false)
+	$CollisionShape2DFront.disabled = false
+	$PlayerNearbyDetection.set_deferred("monitoring", true)
+	$PlayerInElevatorDetection.set_deferred("monitoring", true)
 	
 
 func turn_off():
 	turned_off = true
-	$CollisionShape2DL.disabled = true
-	$CollisionShape2DR.disabled = true
-	$CollisionShape2DDoorL.disabled = true
-	$CollisionShape2DDoorR.disabled = true
-	$CollisionShape2DBack.disabled = true
+	$CollisionShape2DL.set_deferred("disabled", true)
+	$CollisionShape2DR.set_deferred("disabled", true)
+	$CollisionShape2DDoorL.set_deferred("disabled", true)
+	$CollisionShape2DDoorR.set_deferred("disabled", true)
+	$CollisionShape2DBack.set_deferred("disabled", true)
 	$CollisionShape2DFront.disabled = true
-	$PlayerNearbyDetection.monitoring = false
-	$PlayerInElevatorDetection.monitoring = false
+	$PlayerNearbyDetection.set_deferred("monitoring", false)
+	$PlayerInElevatorDetection.set_deferred("monitoring", false)
 
 
 signal player_entered(elevator)
@@ -37,10 +37,9 @@ var door_state = door_states.Closed
 var player_is_inside = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
-	#$CollisionShape2DFront.set_deferred("disabled", true)
-	#$CollisionShape2DDoorL.set_deferred("disabled", false)
-	#$CollisionShape2DDoorR.set_deferred("disabled", false)
+	$CollisionShape2DFront.set_deferred("disabled", true)
+	$CollisionShape2DDoorL.set_deferred("disabled", false)
+	$CollisionShape2DDoorR.set_deferred("disabled", false)
 	#$Sprite2D.z_index = 0
 	
 
@@ -52,6 +51,7 @@ func _process(_delta: float) -> void:
 			$Sprite2D.z_index = 9
 		else:
 			$Sprite2D.z_index = 0
+		
 
 func open():
 
