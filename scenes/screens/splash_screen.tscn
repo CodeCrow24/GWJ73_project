@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkopxtlughhbv"]
+[gd_scene load_steps=6 format=3 uid="uid://dkopxtlughhbv"]
 
 [ext_resource type="Script" path="res://scripts/splash_screen.gd" id="1_c5i56"]
 [ext_resource type="PackedScene" uid="uid://r1wrl07rwvdu" path="res://scenes/screens/title_screen.tscn" id="2_s72lj"]
 [ext_resource type="Texture2D" uid="uid://bwe26dkdn8lsm" path="res://assets/godot_splash.png" id="3_pybxm"]
 [ext_resource type="Texture2D" uid="uid://cj3a52a4j8lso" path="res://assets/gwj_splash.png" id="4_n06xf"]
+[ext_resource type="Texture2D" uid="uid://cclidvychcyaf" path="res://assets/codecrow_splash.png" id="5_vccaf"]
 
-[node name="splash_screen" type="Control" node_paths=PackedStringArray("godot_splash", "gwj_splash")]
+[node name="splash_screen" type="Control" node_paths=PackedStringArray("godot_splash", "gwj_splash", "codecrow_splash")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,6 +17,7 @@ script = ExtResource("1_c5i56")
 load_scene = ExtResource("2_s72lj")
 godot_splash = NodePath("CenterContainer/godot_splash")
 gwj_splash = NodePath("CenterContainer/gwj_splash")
+codecrow_splash = NodePath("CenterContainer/codecrow_splash")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -41,3 +43,7 @@ texture = ExtResource("3_pybxm")
 [node name="gwj_splash" type="TextureRect" parent="CenterContainer"]
 layout_mode = 2
 texture = ExtResource("4_n06xf")
+
+[node name="codecrow_splash" type="TextureRect" parent="CenterContainer"]
+layout_mode = 2
+texture = ExtResource("5_vccaf")
