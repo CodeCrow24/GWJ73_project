@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i0db7"]
 size = Vector2(10, 28)
 
-[node name="stairs_tile" type="StaticBody2D"]
+[node name="stairs_tile2" type="StaticBody2D"]
 script = ExtResource("1_m2s3a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
