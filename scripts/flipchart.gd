@@ -28,14 +28,18 @@ func _process(_delta):
 func _input(_event):
 	if Input.is_action_just_pressed("interact"):
 		if player_close:
-			if Global.flipchart_shown and !Global.flipcharttrans:
+			if get_tree().root.get_node("main/GUI/FlipchartDrawingPanel").active:
 				get_tree().root.get_node("main/GUI").hide_flipchart()
-				Global.flipchart_shown = false
-				Global.flipcharttrans = true
-			elif !Global.flipchart_shown and !Global.flipcharttrans:
+			else:
 				get_tree().root.get_node("main/GUI").show_flipchart(self)
-				Global.flipchart_shown = true
-				Global.flipcharttrans = true
+			#if Global.flipchart_shown and !Global.flipcharttrans:
+		#	#	get_tree().root.get_node("main/GUI").hide_flipchart()
+			#	Global.flipchart_shown = false
+			#	Global.flipcharttrans = true
+			#elif !Global.flipchart_shown and !Global.flipcharttrans:
+			#	get_tree().root.get_node("main/GUI").show_flipchart(self)
+			#	Global.flipchart_shown = true
+			#	Global.flipcharttrans = true
 
 func _on_interaction_zone_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):

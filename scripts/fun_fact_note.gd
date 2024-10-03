@@ -17,14 +17,18 @@ func turn_on():
 func _input(_event):
 	if Input.is_action_just_pressed("interact"):
 		if player_close:
-			if Global.funfact_shown and !Global.funfacttrans:
+			if get_tree().root.get_node("main/GUI/FunFactPanel").active:
 				get_tree().root.get_node("main/GUI").hide_funfact()
-				Global.funfact_shown = false
-				Global.funfacttrans = true
-			elif !Global.funfact_shown and !Global.funfacttrans:
+			else:
 				get_tree().root.get_node("main/GUI").show_funfact(funfact)
-				Global.funfact_shown = true
-				Global.funfacttrans = true
+			#if Global.funfact_shown and !Global.funfacttrans:
+			#	get_tree().root.get_node("main/GUI").hide_funfact()
+			#	Global.funfact_shown = false
+			#	Global.funfacttrans = true
+			#elif !Global.funfact_shown and !Global.funfacttrans:
+			#	get_tree().root.get_node("main/GUI").show_funfact(funfact)
+			#	Global.funfact_shown = true
+			#	Global.funfacttrans = true
 			
 
 
@@ -36,7 +40,7 @@ func _on_interaction_zone_body_entered(body: Node2D) -> void:
 func _on_interaction_zone_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		player_close = false
-		if Global.funfact_shown:
+		if get_tree().root.get_node("main/GUI/FunFactPanel").active:
 			get_tree().root.get_node("main/GUI").hide_funfact()
 			
 			

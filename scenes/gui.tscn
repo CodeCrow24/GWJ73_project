@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dtv4wihrnp6ab"]
+[gd_scene load_steps=26 format=3 uid="uid://dtv4wihrnp6ab"]
 
 [ext_resource type="PackedScene" uid="uid://dobrbfx23cohb" path="res://scenes/control_panel.tscn" id="1_fvcd6"]
 [ext_resource type="Script" path="res://scripts/gui.gd" id="1_vmf71"]
@@ -8,10 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ddvvmf0xvqtwj" path="res://scenes/fun_fact_panel.tscn" id="6_egphb"]
 [ext_resource type="AudioStream" uid="uid://5l1q0k3pis7t" path="res://assets/sounds/elevator_music.mp3" id="6_utgkl"]
 [ext_resource type="AudioStream" uid="uid://c688qh2fea51g" path="res://assets/sounds/elevator_bell.mp3" id="7_yiugb"]
-[ext_resource type="Texture2D" uid="uid://pw55vc34t2qp" path="res://assets/dialouge_box.png" id="9_3nfvn"]
-[ext_resource type="Script" path="res://scripts/dialouge_box.gd" id="9_x0xer"]
-[ext_resource type="FontFile" uid="uid://ongt53bhj2f0" path="res://assets/GUI/fonts/pixelFont.ttf" id="11_ofo37"]
-[ext_resource type="Texture2D" uid="uid://dnge83uyk55k7" path="res://assets/GUI/enter_indicator.png" id="12_fcptc"]
+[ext_resource type="PackedScene" uid="uid://bstxor3dd60s7" path="res://scenes/dialouge_box.tscn" id="9_yd1uq"]
 [ext_resource type="PackedScene" uid="uid://cak0o2dt5bjn7" path="res://scenes/flipchart_drawing_panel.tscn" id="13_lbwhr"]
 [ext_resource type="AudioStream" uid="uid://b4gh22v57txam" path="res://assets/sounds/calm_background.mp3" id="14_2ie7b"]
 [ext_resource type="Script" path="res://scripts/fps.gd" id="15_yqi68"]
@@ -326,24 +323,11 @@ _data = {
 "show_level_select": SubResource("Animation_agfrq")
 }
 
-[sub_resource type="LabelSettings" id="LabelSettings_1us3n"]
-line_spacing = 1.0
-font = ExtResource("11_ofo37")
-font_size = 30
-
 [node name="GUI" type="CanvasLayer"]
 script = ExtResource("1_vmf71")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
 [node name="transition_shader" type="ColorRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_44ys7")
 anchors_preset = 15
 anchor_right = 1.0
@@ -388,53 +372,10 @@ volume_db = -1.0
 stream = ExtResource("7_yiugb")
 volume_db = -1.0
 
-[node name="dialouge_box" type="Node2D" parent="."]
-position = Vector2(0, 162)
-script = ExtResource("9_x0xer")
-
-[node name="sprite" type="Sprite2D" parent="dialouge_box"]
-texture_filter = 1
-position = Vector2(576, 565)
-scale = Vector2(3, 3)
-texture = ExtResource("9_3nfvn")
-
-[node name="text" type="Label" parent="dialouge_box"]
-texture_filter = 1
-offset_left = 18.0
-offset_top = 539.0
-offset_right = 1136.0
-offset_bottom = 639.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-size_flags_stretch_ratio = 0.0
-theme_override_font_sizes/font_size = 10
-text = "enter"
-label_settings = SubResource("LabelSettings_1us3n")
-autowrap_mode = 3
-
-[node name="speaker_name" type="Label" parent="dialouge_box"]
-texture_filter = 1
-offset_left = 17.0
-offset_top = 502.0
-offset_right = 184.0
-offset_bottom = 526.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-size_flags_stretch_ratio = 0.0
-theme_override_font_sizes/font_size = 10
-text = "[SYSTEM]"
-label_settings = SubResource("LabelSettings_1us3n")
-autowrap_mode = 2
-
-[node name="char_timer" type="Timer" parent="dialouge_box"]
-wait_time = 0.1
-autostart = true
-
-[node name="text_finished" type="Sprite2D" parent="dialouge_box"]
-texture_filter = 1
-position = Vector2(1092, 510)
-scale = Vector2(3, 3)
-texture = ExtResource("12_fcptc")
+[node name="dialouge_box" parent="." instance=ExtResource("9_yd1uq")]
+visible = false
+offset_top = 486.0
+offset_bottom = 486.0
 
 [node name="FlipchartDrawingPanel" parent="." instance=ExtResource("13_lbwhr")]
 visible = false
@@ -452,5 +393,3 @@ offset_bottom = 23.0
 script = ExtResource("15_yqi68")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="animation_finished" from="AnimationPlayer" to="dialouge_box" method="_on_animation_player_finished"]
-[connection signal="timeout" from="dialouge_box/char_timer" to="dialouge_box" method="_on_timer_timeout"]

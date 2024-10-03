@@ -27,7 +27,7 @@ func _process(_delta: float) -> void:
 func _on_button_up() -> void:
 	$Colorselectoptions.frame_coords.y = 0
 	
-	get_parent().get_parent().current_color = button_color
+	get_parent().get_parent().get_parent().current_color = button_color
 
 
 func _on_button_down() -> void:

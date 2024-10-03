@@ -10,6 +10,10 @@ var Transition_Shader_Progress = 1
 var showTransitionFade = false
 var TransitionShown = false
 
+var mobile_controls_enabled = false
+
+
+
 # QUEST SYSTEM VARIABLES #
 var quests = [
 	["getCrate", "goToNpc"], 
