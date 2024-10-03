@@ -1,0 +1,62 @@
+[gd_scene load_steps=12 format=3 uid="uid://b26empq7r8gj1"]
+
+[ext_resource type="Texture2D" uid="uid://dadcvk5yqlsrf" path="res://assets/GUI/touch/button1.png" id="1_1ujvt"]
+[ext_resource type="Texture2D" uid="uid://bwiq4pffq7sq7" path="res://assets/GUI/touch/button8.png" id="2_x5a3j"]
+[ext_resource type="Texture2D" uid="uid://8m3mpqhrxxk4" path="res://assets/GUI/touch/button4.png" id="3_swola"]
+[ext_resource type="Texture2D" uid="uid://bcjcyyvll41ls" path="res://assets/GUI/touch/button11.png" id="4_1x5q1"]
+[ext_resource type="Texture2D" uid="uid://ttkoybxw7d3m" path="res://assets/GUI/touch/button3.png" id="5_a2n15"]
+[ext_resource type="Texture2D" uid="uid://c2q13xp2n7ucd" path="res://assets/GUI/touch/button10.png" id="6_q7w6q"]
+[ext_resource type="Texture2D" uid="uid://dnwdagd5t7rpe" path="res://assets/GUI/touch/button2.png" id="7_w04ld"]
+[ext_resource type="Texture2D" uid="uid://c0fieydc3wl6y" path="res://assets/GUI/touch/button9.png" id="8_hrxvo"]
+[ext_resource type="Texture2D" uid="uid://csc3bexrmx4i2" path="res://assets/GUI/touch/button6.png" id="9_owpct"]
+[ext_resource type="Texture2D" uid="uid://vlnmbulj4b54" path="res://assets/GUI/touch/button13.png" id="10_hg0q8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vk8pl"]
+radius = 19.88
+
+[node name="MobileControls" type="CanvasLayer"]
+
+[node name="UP" type="TouchScreenButton" parent="."]
+texture_filter = 1
+position = Vector2(143, 346)
+scale = Vector2(3, 3)
+texture_normal = ExtResource("1_1ujvt")
+texture_pressed = ExtResource("2_x5a3j")
+shape = SubResource("CircleShape2D_vk8pl")
+action = "up"
+
+[node name="LEFT" type="TouchScreenButton" parent="."]
+texture_filter = 1
+position = Vector2(66, 423)
+scale = Vector2(3, 3)
+texture_normal = ExtResource("3_swola")
+texture_pressed = ExtResource("4_1x5q1")
+shape = SubResource("CircleShape2D_vk8pl")
+action = "left"
+
+[node name="DOWN" type="TouchScreenButton" parent="."]
+texture_filter = 1
+position = Vector2(143, 500)
+scale = Vector2(3, 3)
+texture_normal = ExtResource("5_a2n15")
+texture_pressed = ExtResource("6_q7w6q")
+shape = SubResource("CircleShape2D_vk8pl")
+action = "down"
+
+[node name="RIGHT" type="TouchScreenButton" parent="."]
+texture_filter = 1
+position = Vector2(220, 423)
+scale = Vector2(3, 3)
+texture_normal = ExtResource("7_w04ld")
+texture_pressed = ExtResource("8_hrxvo")
+shape = SubResource("CircleShape2D_vk8pl")
+action = "right"
+
+[node name="INTERACT" type="TouchScreenButton" parent="."]
+texture_filter = 1
+position = Vector2(917, 423)
+scale = Vector2(3, 3)
+texture_normal = ExtResource("9_owpct")
+texture_pressed = ExtResource("10_hg0q8")
+shape = SubResource("CircleShape2D_vk8pl")
+action = "interact"

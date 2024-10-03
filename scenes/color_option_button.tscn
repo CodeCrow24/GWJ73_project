@@ -12,14 +12,13 @@ anchor_right = 0.016
 anchor_bottom = 0.028
 offset_left = -18.432
 offset_top = -18.144
-offset_right = 17.568
-offset_bottom = 17.856
+offset_right = -6.432
+offset_bottom = -6.144
 flat = true
 script = ExtResource("1_264pn")
 
 [node name="Colorselectoptions" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(3, 3)
 texture = ExtResource("1_2tk43")
 centered = false
 hframes = 6

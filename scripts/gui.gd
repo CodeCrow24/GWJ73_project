@@ -18,14 +18,14 @@ func show_level_select(elevator):
 	$LevelSelect.elevator_that_opened_level_select  = elevator
 	$transition_shader.set_curtain()
 	Global.showTransitionFade = true
-	$AnimationPlayer.play("show_level_select")
+	$LevelSelect.show()
 	$elevator_music.play()
 	#$LevelSelect.visible = true
 	
 func hide_level_select():
 	#$LevelSelect.visible = false
-	get_tree().root.get_node("main").get_node("player/Camera2D").position_smoothing_enabled = false
-	$AnimationPlayer.play("hide_level_select")
+	
+	$LevelSelect.hide()
 	Global.showTransitionFade = false
 	$elevator_music.stop()
 	$elevator_bell.play()
@@ -39,16 +39,12 @@ func stairs_transition_in(DestinationFloor, stairs_type, stairs_id):
 	stairDestData = [DestinationFloor, stairs_type, stairs_id]
 	$transition_shader.set_radial()
 	$AnimationPlayer.play("StairsFadeIn")
-	
 
-func _on_timer_timeout():
-	Global.showTransitionFade = false
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if anim_name == "hide_level_select":
-		get_tree().root.get_node("main").get_node("player/Camera2D").position_smoothing_enabled = true
-	elif anim_name == "StairsFadeIn":
+	
+	if anim_name == "StairsFadeIn":
 		if Global.shaderActive:
 			Global.showTransitionFade = false
 			Global.shaderActive = false
@@ -57,24 +53,21 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		$AnimationPlayer.play("StairsFadeIn")
 	elif anim_name == "StairsFadeOut":
 		get_tree().root.get_node("main").get_node("player/Camera2D").position_smoothing_enabled = true
-	elif anim_name == "hide_flipchart":
-		$FlipchartDrawingPanel.hide_flipchart()
-	if anim_name == "hide_flipchart" or anim_name == "show_flipchart":
-		Global.flipcharttrans = false
-	if anim_name == "hide_funfact" or anim_name == "show_funfact":
-		Global.funfacttrans = false
+
+
 
 func show_funfact(funfact):
-	$FunFactPanel.show_funfact(funfact)
-	$AnimationPlayer.play("show_funfact")
+	$FunFactPanel.set_text(funfact)
+	$FunFactPanel.show()
 func hide_funfact():
-	$FunFactPanel.hide_funfact()
-	$AnimationPlayer.play("hide_funfact")
+	$FunFactPanel.hide()
 
 func show_flipchart(body):
-	$AnimationPlayer.play("show_flipchart")
+	$FlipchartDrawingPanel.show()
 	$FlipchartDrawingPanel.show_flipchart(body)
+	#$AnimationPlayer.play("show_flipchart")
+	
 
 func hide_flipchart():
-	$AnimationPlayer.play("hide_flipchart")
-	#$FlipchartDrawingPanel.hide_flipchart()
+	$FlipchartDrawingPanel.hide()#$AnimationPlayer.play("hide_flipchart")
+	$FlipchartDrawingPanel.hide_flipchart()

@@ -1,4 +1,4 @@
-extends Control
+extends GUI_Element
 
 var current_flipchart = null
 var dynImage = Image.new()
@@ -34,9 +34,10 @@ func _input(event: InputEvent) -> void:
 	elif event is InputEventMouseMotion and mouse_pressed:
 		mouse_pos = event.position 
 
+
 func show_flipchart(flipchart):
 	current_flipchart = flipchart
-	visible = true
+	self.visible = true
 	
 	dynImage = flipchart.dynImage
 	update_texture()

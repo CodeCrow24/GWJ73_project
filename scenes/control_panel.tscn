@@ -1,46 +1,104 @@
-[gd_scene load_steps=4 format=3 uid="uid://dobrbfx23cohb"]
+[gd_scene load_steps=8 format=3 uid="uid://dobrbfx23cohb"]
 
 [ext_resource type="Script" path="res://scripts/control_panel.gd" id="1_p61hg"]
 [ext_resource type="Texture2D" uid="uid://d20qmcvg01xam" path="res://assets/GUI/elevator/ControlPanelBackground.png" id="1_qds4j"]
 [ext_resource type="PackedScene" uid="uid://b1mijepukok1e" path="res://scenes/elevator_button.tscn" id="2_vrl2p"]
+
+[sub_resource type="Animation" id="Animation_6qx7x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ControlPanelPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ControlPanelPanel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_3c5xy"]
+resource_name = "hide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ControlPanelPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 600)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ControlPanelPanel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_al7u2"]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ControlPanelPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 600), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ControlPanelPanel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o4em0"]
+_data = {
+"RESET": SubResource("Animation_6qx7x"),
+"hide": SubResource("Animation_3c5xy"),
+"show": SubResource("Animation_al7u2")
+}
 
 [node name="ControlPanel" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_p61hg")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-layout_mode = 1
-color = Color(0.635294, 0.635294, 0.635294, 1)
-
-[node name="ControlPanelFloorNumber" type="NinePatchRect" parent="."]
-visible = false
-texture_filter = 1
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.404514
-anchor_top = 0.223765
-anchor_right = 0.41059
-anchor_bottom = 0.228395
-offset_left = -50.0
-offset_top = -65.0
-offset_right = 50.0
-offset_bottom = 65.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(3, 3)
-texture = ExtResource("1_qds4j")
-region_rect = Rect2(0, 0, 32, 16)
-patch_margin_left = 3
-patch_margin_top = 3
-patch_margin_right = 3
-patch_margin_bottom = 3
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
-metadata/_edit_use_anchors_ = true
-
 [node name="ControlPanelPanel" type="NinePatchRect" parent="."]
+visible = false
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
@@ -162,3 +220,10 @@ offset_right = 82.3333
 offset_bottom = 17.6667
 ButtonState = 3
 Symbol = "8"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_o4em0")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

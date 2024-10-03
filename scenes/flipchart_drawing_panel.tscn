@@ -1,9 +1,207 @@
-[gd_scene load_steps=5 format=3 uid="uid://cak0o2dt5bjn7"]
+[gd_scene load_steps=9 format=3 uid="uid://cak0o2dt5bjn7"]
 
 [ext_resource type="Script" path="res://scripts/flipchart_drawing_panel.gd" id="1_caggl"]
 [ext_resource type="Texture2D" uid="uid://d20qmcvg01xam" path="res://assets/GUI/elevator/ControlPanelBackground.png" id="2_j4mre"]
 [ext_resource type="Texture2D" uid="uid://dc1qc4sweq3vo" path="res://assets/test.png" id="3_a20ch"]
 [ext_resource type="PackedScene" uid="uid://biiaktqydi4cp" path="res://scenes/color_option_button.tscn" id="4_tyav6"]
+
+[sub_resource type="Animation" id="Animation_mua7a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NinePatchRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Canvas:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(124.5, 156)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NinePatchRect/Control:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(85, 2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("NinePatchRect:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Canvas:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_dkt6i"]
+resource_name = "hide"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NinePatchRect:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.4, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 600)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Canvas:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(124.5, 156), Vector2(124.5, 756)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NinePatchRect/Control:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(85, 2), Vector2(70, 2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Canvas:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("NinePatchRect:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_2dou1"]
+resource_name = "show"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NinePatchRect:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 600), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Canvas:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(124.5, 756), Vector2(124.5, 156)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NinePatchRect/Control:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.9, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(70, 2), Vector2(85, 2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Canvas:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("NinePatchRect:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_glr7j"]
+_data = {
+"RESET": SubResource("Animation_mua7a"),
+"hide": SubResource("Animation_dkt6i"),
+"show": SubResource("Animation_2dou1")
+}
 
 [node name="FlipchartDrawingPanel" type="Control"]
 layout_mode = 3
@@ -11,6 +209,7 @@ anchors_preset = 0
 script = ExtResource("1_caggl")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
+visible = false
 texture_filter = 1
 layout_mode = 0
 offset_right = 83.0
@@ -22,20 +221,15 @@ patch_margin_top = 3
 patch_margin_right = 3
 patch_margin_bottom = 3
 
-[node name="Canvas" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(124.5, 156)
-scale = Vector2(9, 9)
-texture = ExtResource("3_a20ch")
-
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="NinePatchRect"]
+show_behind_parent = true
 anchors_preset = 0
-offset_left = 255.0
-offset_top = 6.0
-offset_right = 255.0
-offset_bottom = 6.0
+offset_left = 85.0
+offset_top = 2.0
+offset_right = 85.0
+offset_bottom = 2.0
 
-[node name="Red" parent="Control" instance=ExtResource("4_tyav6")]
+[node name="Red" parent="NinePatchRect/Control" instance=ExtResource("4_tyav6")]
 layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0
@@ -44,11 +238,37 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 0.0
 offset_top = 0.0
-offset_right = 36.0
-offset_bottom = 36.0
+offset_right = 12.0
+offset_bottom = 12.0
 button_color = Color(0.902, 0.271, 0.244, 1)
 
-[node name="Green" parent="Control" instance=ExtResource("4_tyav6")]
+[node name="Green" parent="NinePatchRect/Control" instance=ExtResource("4_tyav6")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 13.0
+offset_right = 12.0
+offset_bottom = 25.0
+button_color = Color(0.388, 0.671, 0.247, 1)
+
+[node name="Blue" parent="NinePatchRect/Control" instance=ExtResource("4_tyav6")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 26.0
+offset_right = 12.0
+offset_bottom = 38.0
+button_color = Color(0.31, 0.643, 0.722, 1)
+
+[node name="Yellow" parent="NinePatchRect/Control" instance=ExtResource("4_tyav6")]
 layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0
@@ -57,37 +277,11 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 0.0
 offset_top = 39.0
-offset_right = 36.0
-offset_bottom = 75.0
-button_color = Color(0.388, 0.671, 0.247, 1)
-
-[node name="Blue" parent="Control" instance=ExtResource("4_tyav6")]
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 78.0
-offset_right = 36.0
-offset_bottom = 114.0
-button_color = Color(0.31, 0.643, 0.722, 1)
-
-[node name="Yellow" parent="Control" instance=ExtResource("4_tyav6")]
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 117.0
-offset_right = 36.0
-offset_bottom = 153.0
+offset_right = 12.0
+offset_bottom = 51.0
 button_color = Color(0.941, 0.71, 0.255, 1)
 
-[node name="White" parent="Control" instance=ExtResource("4_tyav6")]
+[node name="White" parent="NinePatchRect/Control" instance=ExtResource("4_tyav6")]
 layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0
@@ -95,12 +289,12 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 0.0
-offset_top = 156.0
-offset_right = 36.0
-offset_bottom = 192.0
+offset_top = 52.0
+offset_right = 12.0
+offset_bottom = 64.0
 button_color = Color(1, 1, 1, 1)
 
-[node name="Black" parent="Control" instance=ExtResource("4_tyav6")]
+[node name="Black" parent="NinePatchRect/Control" instance=ExtResource("4_tyav6")]
 layout_mode = 0
 anchors_preset = 0
 anchor_left = 0.0
@@ -108,7 +302,19 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 offset_left = 0.0
-offset_top = 195.0
-offset_right = 36.0
-offset_bottom = 231.0
+offset_top = 65.0001
+offset_right = 12.0
+offset_bottom = 77.0001
 button_color = Color(0, 0, 0, 1)
+
+[node name="Canvas" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(124.5, 156)
+scale = Vector2(9, 9)
+texture = ExtResource("3_a20ch")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_glr7j")
+}
